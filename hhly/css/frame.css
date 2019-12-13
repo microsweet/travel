@@ -1,0 +1,24 @@
+
+#naviContent {
+	left: 0px;
+	margin: 10px;
+	overflow: auto;	
+	position: absolute;
+	left: 0px;
+	top:20px;
+	
+	height: 93%;	
+}
+
+.viewhref {
+	list-style:none;
+	float: left;
+	width: 60px;
+	height: 100px;
+	text-align: center;
+}
+//·ÖÒ³
+#resultPage {
+	position: relative;
+	bottom: 20px;
+}
