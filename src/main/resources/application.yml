@@ -1,0 +1,18 @@
+server:  
+  port: 8090  
+  session-timeout: 30  
+  tomcat.max-threads: 0  
+  tomcat.uri-encoding: UTF-8  
+  
+spring:
+    resources:
+        static-locations: classpath:/static/,classpath:/views/,file:${web.upload},file:${web.ueditorUpload}
+    datasource:
+        driver-class-name: org.sqlite.JDBC
+        url: jdbc:sqlite::resource:static/sqlite/travel.db
+        username: 
+        password: 
+    
+mybatis:
+  mapper-locations:
+    classpath : static/mapper/*.xml
