@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dechy.travel.show.mapper.NewDetailMapper">
+	<resultMap type="com.dechy.travel.show.model.NewDetail" id="orderFlow">
+		<result column="create_time" property="createTime" />
+	</resultMap>
+	<select id="findNewDetails" resultType="com.dechy.travel.show.model.NewDetail">
+		select * from new_detail
+	</select>
+	
+</mapper>

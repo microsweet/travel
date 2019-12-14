@@ -5,18 +5,18 @@ server:
   tomcat.uri-encoding: UTF-8  
   
 spring:
-    resources:
-        static-locations: classpath:/static/,classpath:/views/,file:${web.upload},file:${web.ueditorUpload}
-    thymeleaf: 
-        cache: false
-        prefix: classpath:/templates/
-        suffix: .html
-    datasource:
-        driver-class-name: org.sqlite.JDBC
-        url: jdbc:sqlite::resource:static/sqlite/travel.db
-        username: 
-        password: 
+  resources:
+    static-locations: classpath:/static/,classpath:/views/,file:${web.upload},file:${web.ueditorUpload}
+  thymeleaf: 
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite::resource:static/sqlite/travel.db
+    username: 
+    password: 
     
 mybatis:
   mapper-locations:
-    classpath : static/mapper/*.xml
+    classpath : static/mapper/*.xml, com/dechy/travel/*/mapper/*.xml

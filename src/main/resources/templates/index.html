@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <base href="<%=basePath%>">
 <title>新乐市旅游</title>
@@ -7,7 +7,7 @@
 <meta name="description" content=新乐市旅游 />
 <meta name="robots" content="all" />
 <meta content="MSHTML 6.00.2900.3268" name="GENERATOR" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.slideBox.css"></link>
 <link rel="stylesheet" type="text/css" href="css/index.css"></link>
 
@@ -23,271 +23,279 @@
 </head>
 
 <body>
-	<div style="text-align: center; width: 100%">
-		<form>
+    <div style="text-align: center; width: 100%">
+        <form>
+            <!--头部-->
+            <!--最新活动-->
+            <div class="head">
+                <div th:replace="../static/masterPage/top :: top"></div>
+            </div>
 
-			<!--头部-->
-			<!--最新活动-->
-			<div class="head"><div th:replace="../static/masterPage/top :: body" ></div></div>
+            <!--首页中间内容-->
 
-			<!--首页中间内容-->
-
-			<div class="part_1">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td height="250" width="325" valign="top">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td width="194" height="60"><img
-										src="images/sysImages/index_04.png" width="134" height="48" /></td>
-									<td width="130" height="60" align="center"></td>
-								</tr>
-								<tr>
-									<td height="190" colspan="2" valign="top" align="center"
-										style="background: url(images/sysImages/index_08.png) no-repeat right top; text-align: center; padding-top: 5px; padding-left: 28px;"
-										class="t_w">
-
-
-										<div id="tpcbanner">
-											<div id="tpcbanner_bg"></div>
-											<!--标题背景-->
-											<div id="tpcbanner_info"></div>
-											<!--标题-->
-
-											<ul>
-
-												<li class="on">1</li>
-												<li class="on">2</li>
-												<li class="on">3</li>
-
-											</ul>
-											<div id="tpcbanner_list">
-												<a href="New_Details?ID=191" target="_blank"> <img
-													src="images/postImages/a.jpg" width="269px" height="177px"
-													title="伏羲台" alt="伏羲台" />
-												</a> <a href="New_Details?ID=189" target="_blank"> <img
-													src="images/postImages/b.jpg" width="269px" height="177px"
-													title="人祖庙" alt="人祖庙" />
-												</a> <a href="New_Details?ID=190" target="_blank"> <img
-													src="images/postImages/c.jpg" width="269px" height="177px"
-													title="美术学院" alt="美术学院" />
-												</a>
-
-											</div>
-										</div>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td width="415" height="260" valign="top">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td width="330" height="60"><img
-										src="images/sysImages/index_03.png" width="134" height="48" /></td>
-									<td height="60"><a href="NewList?type=0"> <img
-											src="images/sysImages/index_06.png" width="53" height="19" />
-									</a></td>
-								</tr>
-								<tr>
-									<td height="170" colspan="2" align="left" valign="top"
-										class="news" style="border-bottom: 1px dotted #999999">
-										<!--景区动态-->
-										<table id="ctl00_Index_nlist_list" cellspacing="0"
-											cellpadding="0" border="0"
-											style="width: 100%; border-collapse: collapse;">
-											<c:forEach items="${list_jqdt }" var="m">
-												<tr>
-													<td>
-														<ul class="">
-															<li>
-																<table cellpadding="0" cellspacing="0" width="90%"
-																	border="0" class="fontcss">
-																	<tr>
-																		<td align="left"><a
-																			href="New_Details?ID=${m.ID }" title=" ${m.WZBT }">
-																				${m.WZBT } </a></td>
-																		<td align="right">${m.TIME }</td>
-																	</tr>
-																</table> </span>
-															</li>
-														</ul>
-													</td>
-												</tr>
-											</c:forEach>
-
-										</table> <br />
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td width="262" height="260" align="right"><img
-							src="images/sysImages/index_42.png" width="254" height="258"
-							usemap="#Map" /> <map name="Map" id="Map">
-								<area shape="rect" coords="21,25,129,56"
-									href="../../hhmap/index.html" target="_blank" />
-							</map></td>
-					</tr>
-				</table>
-			</div>
-			<div class="part_2">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="100%" height="217" valign="top"
-							style="background: url(images/sysImages/index_55.png) no-repeat">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td width="170" rowspan="2" align="center" class="di"><img
-										src="images/sysImages/1.jpg" alt="" width="122" height="83" /></td>
-									<td height="174" class="dcjj">
-										<p class="fontcss">
-											<!--${_jianjie }-->
-											新乐位于石家庄市北部，总面积525平方公里，总人口51.7万；城市建成区面积13平方公里，市区人口14万。辖8镇3乡1个街道，160个行政村、10个居委会。2009年列为省财政直管县（市）。新乐交通区位十分优越，南距省会石家庄30公里，北距首都北京200公里，东距天津港280公里，距石家庄国际机场零距离。境内有京广、神黄、京石客运专线三条铁路，京港澳、新元、石忻（规划中）三条高速公路，107国道和203、204省道三条高等级公路，周边40公里半径范围内有京昆、石黄、石津、青银、保阜和西柏坡等六条高速公路，具备独特的航空、铁路、公路多式联合运输条件。是国家主体功能区规划的重点开发区域。
-										</p>
-									</td>
-								</tr>
-								<tr>
-									<td height="49" align="right"><a href="about.jsp"
-										class="fontcss">【详细介绍】</a></td>
-								</tr>
-							</table>
-						</td>
-
-					</tr>
-				</table>
-			</div>
+            <div class="part_1">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="250" width="325" valign="top">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="194" height="60"><img
+                                        src="images/sysImages/index_04.png" width="134" height="48" /></td>
+                                    <td width="130" height="60" align="center"></td>
+                                </tr>
+                                <tr>
+                                    <td height="190" colspan="2" valign="top" align="center"
+                                        style="text-align: center; padding-top: 5px; padding-left: 28px;"
+					                    class="t_w">
 
 
-			<div class="part_5">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td height="47" colspan="3"><img
-							src="images/sysImages/index_80.png" width="1002" height="47" /></td>
-					</tr>
-					<tr>
-						<td width="334" height="100">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td width="120" height="100" align="center" valign="middle">
-										<img src="images/sysImages/index_89.png" width="103" height="81" />
-									</td>
-									<td height="100" valign="middle" class="fwzn">
-										<!--游客须知-->
-										<table id="ctl00_Index_NewsList2_list" cellspacing="0"
-											cellpadding="0" border="0"
-											style="width: 100%; border-collapse: collapse;">
-											<c:forEach items="${list_ykxz }" var="ykxz">
-												<tr>
-													<td>
+                                        <div id="tpcbanner">
+                                            <div id="tpcbanner_bg"></div>
+                                            <!--标题背景-->
+                                            <div id="tpcbanner_info"></div>
+                                            <!--标题-->
 
-														<ul class="">
-															<li>
-																<table cellpadding="0" cellspacing="0" width="90%"
-																	border="0" class="fontcss">
-																	<tr>
-																		<td align="left"><a
-																			href="New_Details?ID=${ykxz.ID }"
-																			title="${ykxz.WZBT }"> ${ykxz.WZBT } </a></td>
+                                            <ul>
 
-																	</tr>
-																</table> </span>
-															</li>
-														</ul>
-													</td>
-												</tr>
-											</c:forEach>
+                                                <li class="on">1</li>
+                                                <li class="on">2</li>
+                                                <li class="on">3</li>
 
-										</table> <br />
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td width="334">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td width="120" height="100" align="center" valign="middle">
-										<img onclick='window.open("../QHmap/webpage/map/map.jsp")'
-										src="images/sysImages/index_86.png" width="103" height="81" />
-									</td>
-									<td height="100" valign="middle" class="fwzn">
-										<!--交通指南-->
-										<table id="ctl00_Index_NewsList3_list" cellspacing="0"
-											cellpadding="0" border="0"
-											style="width: 100%; border-collapse: collapse;">
-											<c:forEach items="${list_jtzn }" var="s2">
-												<tr>
-													<td>
+                                            </ul>
+                                            <div id="tpcbanner_list">
+                                                <a th:each="detailMap : ${newDetails}"
+                                                   th:href="@{${detailMap.href}}" target="_blank">
+                                                    <img th:src="@{${detailMap.src}}" width="269px"
+                                                         th:height="177px" th:title="${detailMap.title}" th:alt="${detailMap.title}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="415" height="260" valign="top">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="330" height="60">
+                                        <img src="images/sysImages/index_03.png" width="134" height="48" />
+                                    </td>
+                                    <td height="60">
+                                        <a href="NewList?type=0"> 
+                                            <img src="images/sysImages/index_06.png" width="53" height="19" />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="170" colspan="2" align="left" valign="top"
+                                        class="news" style="border-bottom: 1px dotted #999999">
+                                        <!--景区动态-->
+                                        <table id="ctl00_Index_nlist_list" cellspacing="0"
+                                            cellpadding="0" border="0"
+                                            style="width: 100%; border-collapse: collapse;">
+                                            <tr th:each="jqdt : ${jqdtList}">
+                                                <td>
+                                                    <ul class="">
+                                                        <li>
+                                                            <table cellpadding="0"
+                                                                cellspacing="0" width="90%"
+                                                                border="0" class="fontcss">
+                                                                <tr>
+                                                                    <td align="left">
+                                                                        <a th:href="@{newDetail/{href}(href=${jqdt.id})}"
+                                                                            th:title="${jqdt.title}" th:text="${jqdt.title}">
+                                                                        </a>
+                                                                    </td>
+                                                                    <td align="right" th:text="${jqdt.createDate}"></td>
+                                                                </tr>
+                                                            </table> </span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
 
-														<ul class="">
-															<li>
-																<table cellpadding="0" cellspacing="0" width="90%"
-																	border="0" class="fontcss">
-																	<tr>
-																		<td align="left"><a
-																			href="New_Details?ID=${s2.ID }" title="${s2.WZBT }">${s2.WZBT
-																				} </a></td>
+                                        </table> <br />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="262" height="260" align="right"><img
+                            src="images/sysImages/index_42.png" width="254" height="258"
+                            usemap="#Map" /> <map name="Map" id="Map">
+                                <area shape="rect" coords="21,25,129,56"
+                                    href="../../hhmap/index.html" target="_blank" />
+                            </map></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="part_2">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="100%" height="217" valign="top"
+                            style="background: url(images/sysImages/index_55.png) no-repeat">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="170" rowspan="2" align="center" class="di"><img
+                                        src="images/sysImages/1.jpg" alt="" width="122" height="83" /></td>
+                                    <td height="174" class="dcjj">
+                                        <p class="fontcss">
+                                            <!--${_jianjie }-->
+                                            新乐位于石家庄市北部，总面积525平方公里，总人口51.7万；城市建成区面积13平方公里，市区人口14万。辖8镇3乡1个街道，160个行政村、10个居委会。2009年列为省财政直管县（市）。新乐交通区位十分优越，南距省会石家庄30公里，北距首都北京200公里，东距天津港280公里，距石家庄国际机场零距离。境内有京广、神黄、京石客运专线三条铁路，京港澳、新元、石忻（规划中）三条高速公路，107国道和203、204省道三条高等级公路，周边40公里半径范围内有京昆、石黄、石津、青银、保阜和西柏坡等六条高速公路，具备独特的航空、铁路、公路多式联合运输条件。是国家主体功能区规划的重点开发区域。
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="49" align="right"><a href="about.jsp"
+                                        class="fontcss">【详细介绍】</a></td>
+                                </tr>
+                            </table>
+                        </td>
 
-																	</tr>
-																</table>
-															</li>
-														</ul>
-													</td>
-												</tr>
-											</c:forEach>
-										</table> <br />
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td width="334">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td width="120" height="100" align="center" valign="middle">
-										<img src="images/sysImages/index_83.png" width="103" height="81" />
-									</td>
-									<td height="100" valign="middle" class="fwzn">
-										<!--周边景区-->
-										<table id="ctl00_Index_NewsList4_list" cellspacing="0"
-											cellpadding="0" border="0"
-											style="width: 100%; border-collapse: collapse;">
-											<c:forEach items="${list_zbjq }" var="jq">
-												<tr>
-													<td>
-
-														<ul class="">
-															<li>
-																<table cellpadding="0" cellspacing="0" width="90%"
-																	border="0" class="fontcss">
-																	<tr>
-																		<td align="left"><a
-																			href="New_Details?ID=${jq.ID }" title="${jq.WZBT } ">
-																				${jq.WZBT } </a></td>
-
-																	</tr>
-																</table> </span>
-															</li>
-														</ul>
-													</td>
-												</tr>
-											</c:forEach>
-										</table> <br />
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-			</div>
+                    </tr>
+                </table>
+            </div>
 
 
-			<!--二级左边导航-->
+            <div class="part_5">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="47" colspan="3"><img src="images/sysImages/index_80.png"
+                            width="1002" height="47" /></td>
+                    </tr>
+                    <tr>
+                        <td width="334" height="100">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="120" height="100" align="center" valign="middle">
+                                        <img src="images/sysImages/index_89.png" width="103"
+                                        height="81" />
+                                    </td>
+                                    <td height="100" valign="middle" class="fwzn">
+                                        <!--游客须知-->
+                                        <table id="ctl00_Index_NewsList2_list" cellspacing="0"
+                                            cellpadding="0" border="0"
+                                            style="width: 100%; border-collapse: collapse;">
+                                            <c:forEach items="${list_ykxz }" var="ykxz">
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="">
+                                                            <li>
+                                                                <table cellpadding="0"
+                                                                    cellspacing="0" width="90%"
+                                                                    border="0" class="fontcss">
+                                                                    <tr>
+                                                                        <td align="left"><a
+                                                                            href="New_Details?ID=${ykxz.ID }"
+                                                                            title="${ykxz.WZBT }">
+                                                                                ${ykxz.WZBT } </a></td>
+
+                                                                    </tr>
+                                                                </table> </span>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+
+                                        </table> <br />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="334">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="120" height="100" align="center" valign="middle">
+                                        <img onclick='window.open("../QHmap/webpage/map/map.jsp")'
+                                        src="images/sysImages/index_86.png" width="103" height="81" />
+                                    </td>
+                                    <td height="100" valign="middle" class="fwzn">
+                                        <!--交通指南-->
+                                        <table id="ctl00_Index_NewsList3_list" cellspacing="0"
+                                            cellpadding="0" border="0"
+                                            style="width: 100%; border-collapse: collapse;">
+                                            <c:forEach items="${list_jtzn }" var="s2">
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="">
+                                                            <li>
+                                                                <table cellpadding="0"
+                                                                    cellspacing="0" width="90%"
+                                                                    border="0" class="fontcss">
+                                                                    <tr>
+                                                                        <td align="left"><a
+                                                                            href="New_Details?ID=${s2.ID }"
+                                                                            title="${s2.WZBT }">${s2.WZBT
+                                                                                } </a></td>
+
+                                                                    </tr>
+                                                                </table>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </table> <br />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="334">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="120" height="100" align="center" valign="middle">
+                                        <img src="images/sysImages/index_83.png" width="103"
+                                        height="81" />
+                                    </td>
+                                    <td height="100" valign="middle" class="fwzn">
+                                        <!--周边景区-->
+                                        <table id="ctl00_Index_NewsList4_list" cellspacing="0"
+                                            cellpadding="0" border="0"
+                                            style="width: 100%; border-collapse: collapse;">
+                                            <c:forEach items="${list_zbjq }" var="jq">
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="">
+                                                            <li>
+                                                                <table cellpadding="0"
+                                                                    cellspacing="0" width="90%"
+                                                                    border="0" class="fontcss">
+                                                                    <tr>
+                                                                        <td align="left"><a
+                                                                            href="New_Details?ID=${jq.ID }"
+                                                                            title="${jq.WZBT } ">
+                                                                                ${jq.WZBT } </a></td>
+
+                                                                    </tr>
+                                                                </table> </span>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </table> <br />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <!--二级左边导航-->
 
 
 
-			<!--二级右边内容-->
-			<!--所有页面下方版权-->
-			<!-- 	 -->
-		</form>
-	</div>
+            <!--二级右边内容-->
+            <!--所有页面下方版权-->
+	    <div th:replace="../static/masterPage/bottom.html :: bottom"></div>
+            <!-- 	 -->
+        </form>
+    </div>
 </body>
 
 </html>
