@@ -1,0 +1,80 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!--头部-->
+
+
+<div class="top"></div>
+<div class="nav">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="260" height="181" style="padding-left:40px;">
+				<img src="New_images/logo.png" style="
+    margin-left: -30px;
+"/>
+			</td>
+			<td width=""></td>
+			<td class="nav_m" width="760">
+				<ul>
+					<li><a href="index.jsp"> <img
+							src="New_images/index_07.png" width="32" height="104" /> </a></li>
+					<li><a href="about.jsp"> <img
+							src="New_images/index_11.png" width="32"  height="104" /> </a></li>
+					<!-- <li><a href="NewList?type=4"
+						tppabs=" product.aspx?type=jqgl&s_sort=43"> <img
+							src="New_images/index_13.png" width="32" height="104" /> </a></li> -->
+					<li><a href="../../forum/index.jsp"
+						tppabs=" news.aspx?type=fwzl&n_sort=50"> <img
+							src="New_images/index_15.png" width="32" height="104" /> </a></li>
+					<li><a href="NewList?type=0"
+						tppabs=" product.aspx?type=ykzz&n_sort=42"> <img  
+							src="New_images/index_17.png" width="32" height="104"  /> </a></li>
+					<li><a href="NewList?type=4"> <img
+							src="New_images/index_19.png" width="32" height="104" /> </a></li>
+					<li><a href="admin/login.jsp" target="_blank "> <img
+							src="New_images/index_21.png" width="32" height="104" /> </a></li>
+					<li><a href="../../hhmap/index.html" target="_blank "> <img
+							src="New_images/index_0025.png" width="32" height="104" /> </a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</div>
+</div>
+<div class="banner">
+	<script>
+		jQuery(function($) {
+			$('#demo1').slideBox();
+			$('#demo2').slideBox({
+				direction : 'top',//left,top#方向
+				duration : 0.3,//滚动持续时间，单位：秒
+				easing : 'linear',//swing,linear//滚动特效
+				delay : 7,//滚动延迟时间，单位：秒
+				startIndex : 1
+			//初始焦点顺序
+			});
+			$('#demo3').slideBox({
+				duration : 0.3,//滚动持续时间，单位：秒
+				easing : 'linear',//swing,linear//滚动特效
+				delay : 10,//滚动延迟时间，单位：秒
+				hideClickBar : false,//不自动隐藏点选按键
+				clickBarRadius : 10
+			});
+			$('#demo4').slideBox({
+				hideBottomBar : true
+			//隐藏底栏
+			});
+		});
+	</script>
+	<div id="demo1" class="slideBox">
+		<ul class="items">
+			<li><a href="" title="伏羲台"><img src="New_PostImage/a.jpg"
+					width="1000px" height="308px"> </a></li>
+			
+			<li><a href="" title="人祖庙"><img
+					src="New_PostImage/b.jpg" width="1000px" height="308px">
+			</a></li>
+			<li><a href="" title="美术学院"><img
+					src="New_PostImage/c.jpg" width="1000px" height="308px"> </a>
+			</li>
+			
+		</ul>
+	</div>

@@ -1,0 +1,422 @@
+a{ text-decoration:none} 
+form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+*{
+	font-size:12px;
+}
+
+
+#Btn{
+	position:relative;
+	overflow: none;	
+	position: relative;
+	left: 0px;
+
+	width: 290px;
+	height:5%;	
+    display:none;
+	/*border-right:2px solid #36648B;*/
+}
+#shouye {
+	position: relative;
+	top:10px;
+
+	height: 30px;
+	cursor:pointer;
+
+}
+#fanhui{
+    position: absolute;
+	top:7px;
+	right:35px;
+	cursor:pointer;
+	display:none;
+}
+
+#btn_home{
+	position:absolute;
+	right:0;
+	top:105px;
+	width:450px;
+	height:25px;
+	z-index:7;
+}
+#mapImg {
+	position: absolute;
+	right: 50px;
+	top: 50px;
+	background-image: url(../images/mapview/image_icon.png);
+	z-index:99999;
+	width: 56px;
+	height: 53px;
+	cursor:hand;
+}
+
+#mapDlg {
+	position: absolute;
+	right: 106px;
+	top: 50px;
+	background-image: url(../images/mapview/map_icon.png);
+	z-index:99999;
+	width: 56px;
+	height: 53px;
+	cursor:hand;
+}
+#popupWin{
+	padding-left: 10px;
+	margin-left: 10px;
+}
+.winTitle{
+	text-align: right;
+}
+.tool{
+	position: relative;
+
+}
+#toolbarMenu{
+    position: absolute;
+	top:4px;
+	right:300px;
+	z-index: 99999;
+}
+#logo{
+	 position: absolute;
+	top:0px;
+	left:40px;
+
+}
+#logo2{
+	 position: absolute;
+	top:-20px;
+	right:0px;
+
+
+}
+
+#homepage{
+	vertical-align:middle;
+	position: absolute;
+	cursor:pointer;
+	top:4px;
+	right:50px;
+	z-index: 99999;
+}
+#fanhui{
+	position: absolute;
+	top:7px;
+	right:35px;
+	cursor:pointer;
+}
+table.imagetable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.imagetable th {
+	background:#C6E2FF ;
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #999999;
+}
+/*#b5cfd2 url('images/land/cell-blue.png')
+ #dcddc0  url('images/land/cell-grey.png') */
+table.imagetable td {
+	background:#FFEBCD;
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #999999;
+}
+
+table.tablequery {
+	width:100%;
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+
+table.tablequery th {
+	background:#C6E2FF ;
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #999999;
+}
+
+/*#b5cfd2 url('images/land/cell-blue.png')
+ #dcddc0  url('images/land/cell-grey.png') */
+
+table.tablequery td {
+	background:#FFEBCD;
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #999999;
+	cursor:pointer;
+}
+#tcgl{
+	margin-left: 20px;
+	padding:10px;
+}
+.buttonright{
+
+	padding:5px;
+	margin:5px;
+	position:relative;
+	float:right;
+}
+.shuru{
+	width:173px;
+}
+
+
+
+
+a:link {
+	color: black;
+}
+/*景点弹出消息框的样式*/
+
+#markInfoDlg{
+	cursor:default;
+	height:80px;
+	width:330px;	
+}
+#markInfoDlgmak{
+	cursor:default;
+	height:80px;
+	width:330px;	
+}
+
+.nametou{
+	
+	font-size:22px;
+	height:27px;
+	font-weight:bod;
+	border-bottom:1px solid #444444;
+}
+
+#markInfoDlg img{
+	/*position:relative;*/
+	float:right;
+} 
+#markInfoImg{
+	position:absolute;
+	right:10px;
+	top:60px;
+	height:80px;
+	width:120px;
+	border:1px solid rgb(80,80,205);	
+}
+#markInfoImgmak{
+	position:absolute;
+	right:10px;
+	top:60px;
+	height:80px;
+	width:120px;
+	border:1px solid rgb(80,80,205);	
+}
+#markInfo{
+	position:relative;
+	top:20px;
+	left:10px;
+	width:190px;
+	
+}#markInfomak{
+	position:relative;
+	top:20px;
+	left:10px;
+	width:190px;
+	
+}
+#markInfoSub{
+	position:absolute;
+	left:70px;
+	width:130px;
+	
+}
+
+
+#markHyperLink{
+	position:relative;
+	top:50px;
+	left:25px;
+	width:300px;
+}
+#markHyperLinkmak{
+	position:relative;
+	top:50px;
+	left:25px;
+	width:300px;
+}
+.markText{
+	
+	background-repeat:no-repeat;
+	
+	line-height:1.5;
+	font-size:13px;
+	width:19px;
+	height:27px;
+	font-weight:bod;
+
+}
+.markTextSub{
+	
+	
+	font-weight:300;
+	color:rgb(85,85,85);				
+	font-size:12;
+	
+}
+.hyperlinksText{
+	line-height:200%;
+	color:rgb(20,30,205);
+	font-size:14;
+	cursor:pointer;
+	font-weight:500;
+	border:1px solid rgb(220,220,220);
+}
+.hyperlinksTextBlow{
+	line-height:200%;
+	color:rgb(20,30,20);
+	font-size:14;	
+	font-weight:500;
+	margin-bottom:10px;
+}
+
+.marktext_hilight
+{
+	background-repeat:no-repeat;
+	line-height:1.5;
+	color:white;
+	font-size:12px;
+	width:25px;
+	height:32px;
+	font-weight:bod;
+	cursor:pointer;
+	text-align:center;
+	z-index:99999;
+}
+
+/*兴趣点POI弹出消息框的样式*/
+
+#markInfoDlgPOI{
+	cursor:default;
+	height:150px;
+	width:330px;	
+}
+#markInfoImgPOI{
+	position:absolute;
+	right:10px;
+	top:60px;
+	height:80px;
+	width:120px;
+	border:1px solid rgb(80,80,205);	
+	
+}
+#markInfoPOI{
+	position:relative;
+	top:20px;
+	left:10px;
+	width:190px;
+
+	
+}
+#markInfoDlgPOImak{
+	cursor:default;
+	height:150px;
+	width:330px;	
+}
+#markInfoImgPOImak{
+	position:absolute;
+	right:10px;
+	top:60px;
+	height:80px;
+	width:120px;
+	border:1px solid rgb(80,80,205);	
+	
+}
+#markInfoPOImak{
+	position:relative;
+	top:20px;
+	left:10px;
+	width:190px;
+
+	
+}
+#markInfoSubPOI{
+	position:relative;
+	left:45px;
+	width:130px;
+
+}
+
+.markTextPOI{
+	
+
+	background-repeat:no-repeat;
+	
+	line-height:1.5;
+	font-size:13px;
+	width:19px;
+	height:27px;
+	font-weight:bod;s	
+	
+}
+.markTextSubPOI{
+	
+	
+	font-weight:300;
+	color:rgb(50,50,50);				
+	font-size:12;
+	
+}
+.hyperlinksTextPOI{
+	line-height:200%;
+	color:rgb(20,30,205);
+	font-size:12;
+	cursor:pointer;
+	font-weight:500;
+	text-decoration:underline;
+}
+
+/*景点左侧查询结果的样式*/
+#detail{
+	color:rgb(20,30,205);
+}
+#zoomTo{
+	color:rgb(20,30,205);
+}
+.p_Img {
+	position: relative;	
+	top:4px;
+	right:2px;
+	width: 70px;
+	height: 80px;
+	float: right;
+	margin-bottom:10px;
+}
+.p_title{
+	left:0;
+	width: 170px;
+	font-weight:600;
+	float: left;
+	position: relative;	
+}
+
+.p_add{
+	left:0;
+	width: 170px;
+	float: left;
+	position: relative;	
+	padding-bottom:10px;
+	margin-bottom:10px;
+	cursor:hand;
+	
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layer-更懂你的web弹窗解决方案</title>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="layer/layer.js"></script>
+
+
+</head>
+<body>
+<div class="box">
+
+    <a href="javascript:;" id="about">关于</a>
+	 <a href="javascript:;" id="parentIframe">ss</a>
+</div>
+
+<script>
+
+
+//关于
+$('#about').on('click', function(){
+    layer.alert(layer.v + ' - 贤心出品 sentsin.com');
+});
+$('#parentIframe').on('click', function() {
+		layer.open({
+			type : 2,
+			title : 'iframe父子操作',
+			maxmin : true,
+			shadeClose : true, //点击遮罩关闭层
+			area : [ '800px', '520px' ],
+			content : 'left.html'
+		});
+	});
+
+</script>
+</body>
+</html>

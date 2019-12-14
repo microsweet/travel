@@ -1,0 +1,296 @@
+
+body {
+	background: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #646464;
+	text-align: center;
+}
+
+#wrapper {
+	text-align: left;
+	width: 930px;
+	margin-top:-14px;
+	background: #eee;
+	padding: 5px;
+	
+}
+/*---------------------head------------*/
+/*---------------------
+h1 {
+	margin: 15px 0 10px 5px;
+	width: 270px;	
+	height:100px;	
+	background: url(../images/details/logo.jpg) no-repeat left top;
+}
+------------*/
+
+h1 {
+	margin: 0px 0 0px 0px;
+	width: 917px;	
+	height:200px;	
+	background: url() no-repeat;
+	border: 1px solid #ddd;
+	
+	
+}
+h1 a {
+	display: block;
+	width: 270px;
+	height: 100px;
+}
+
+h1 span { display: none; }
+
+
+
+/*---------------------menu------------*/
+#viewName img{
+	position:relative;
+	left:10px;
+	
+	width:60px;
+	height:60px;
+	border:0px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+#viewName h1{
+	
+
+	display: inline;
+
+}
+.mainNav{
+	position:relative;
+	top:20px;
+	width: 918px;
+	height: 37px;
+	padding: 0px;
+	margin:0 0 20px 0;
+	
+	
+}
+.menuBtn{
+	position:relative;
+	/*margin:-20px 0 0px 0;
+	border: 1px solid #ddd;*/
+	list-style:none;
+	float: left;
+	width: 200px;
+	height:55px;
+	text-align: center;
+}
+.menuBtn a{
+	width:930px;
+	height:60px;
+	border: 1px solid #ddd;
+	padding:15px 15px 9px 15px;
+	font-family:"黑体";
+	font-size:25px;
+	color:black;
+		
+}
+/*
+#mainNav li {
+	list-style:none;
+	float: left;
+	height: 37px;
+	list-style-type:none;
+}
+
+#mainNav li a {
+	display: block;
+	float: left;
+	height: 37px;
+	font-weight: bold;
+	line-height: 37px;
+	text-decoration: none;
+	color: #646464;
+	padding: 0 20px;
+}
+
+#mainNav li.logout {
+	float: right;
+	border-left: 1px solid #ddd;
+	border-right: none;
+}
+
+#item1{
+	border-right: 1px solid #ddd;
+}
+#item5{
+	border-right: 1px solid #ddd;
+}
+#item9{
+	border-right: 1px solid #ddd;
+}
+#mainNav li a:hover { background: #fdfcf6; }
+
+#mainNav li a.active, #mainNav li a.active {
+	background: #f0f0f0 url(images/land/top-menu-item-bg.gif) repeat-x left top;
+	color: #454545;
+}
+*/
+/*---------------------container------------*/
+
+#container {
+	background: #EAEAEA;
+	border: 1px solid #ddd;
+	width: 918px;
+	margin-left: auto;
+    margin-right: auto;
+}
+#containerHolder {
+	background: #ffffff;
+	padding: 0px;
+}
+/*---------------------images------------*/
+.carousel-inner>.item>a>img,.carousel-inner>.item>img,.img-responsive,.thumbnail a>img,.thumbnail>img
+	{
+	display: block;
+	max-width: 100%;
+	height: 600px;
+}
+
+#jnImageroll{
+	float:left;
+	height:400px;
+	margin:0,30,0,0;
+	overflow:hidden;
+	position:relative;
+	width:918px;
+}
+#jnImageroll img{
+	position:absolute;
+	left:0;
+	top:0;
+	width:918px;
+	height:400px;
+	border:0px;
+}
+
+#imageSmallbk{
+	position:absolute;
+	overflow:hidden;
+	right:0;
+	bottom:0;
+	height:70px;
+	background-color: #1b1b1b;
+	filter:alpha(opacity:60);
+	opacity:0.6;
+	z-index:0;
+}
+#imageSmall{
+	position:absolute;
+	float:left;
+	bottom:0px;
+}
+#imageSmall a{
+	float:right;
+	width:120px;
+	height:70px;
+	display:inline-block;
+	overflow:hidden;
+}
+#imageSmall a img{
+	
+	width:80px;
+	height:50px;
+	display:block;
+	margin:10px 20px;
+	float:right;
+	z-index:1;
+}
+#imageSmallText{
+	cursor:pointer;
+	color:#FFFFFF;
+	float:right;
+	height:70px;
+	width:50px;
+	padding:20px 15px 5px 15px;
+	text-align:center;
+	text-decoration: none;
+}
+/*---------------------detailsBox------------*/
+#evaluateBox{		
+	
+	border:0px;
+	z-index:2000000;	
+	
+}
+#evaluateBoxSub1{			
+	
+	font:"宋体";
+	font-size:20px;
+	border:0px;
+	z-index:200;
+		
+	
+}
+#evaluateBoxSub2{	
+	
+	font:"楷体";
+	font-size:15px;
+	border:0px;
+	z-index:200;
+	line-height: 1.5;
+	text-align: left;		
+	
+	
+}
+/*---------------------introductionBox------------*/
+#introductionBox h2{
+	
+	float:left;
+	width:918px;
+	margin:30px 20px 0 0px;
+	font:"宋体";
+	font-size:20px;
+	
+}
+#introduction1{
+	text-indent: 1cm;
+}
+#introduction2{
+	text-indent: 1cm;
+}
+#introduction3{
+	text-indent: 1cm;
+}
+#introduction4{
+	text-indent: 1cm;
+}
+
+#remarkbg
+{
+
+    position:absolute;
+ 	top:1500px;
+	left: 0;	
+	height: 164px;
+	width: 100%;	
+}
+#remark
+{
+	position:absolute;
+	top:1500px;
+	left: 0;	
+	height: 164px;
+	width: 100%;
+	font-family: serif;
+	font-weight:500;
+	font-size:12px;
+	color:rgb(85,65,85);
+	text-align:center;	
+}
+#container_home_bg{
+    
+	
+	left: 0;
+	top: 0px;
+	height: 1500px;
+	width: 100%;
+	background:rgb(232,232,232);
+}

@@ -1,0 +1,9 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <!--所有页面下方版权-->
+<div class="copyright">
+<font face="Arial">
+<p><font color="#000">主办：新乐市人民政府&nbsp;&nbsp;&nbsp;承办：新乐市国土资源局&nbsp;&nbsp;&nbsp;技术支持：河北省第二测绘院</font></p>
+<p><font color="#ff6600"><!--地址：中国&middot;河北省&middot;井陉县幸福西街与建设南路交叉口 --></font>
+</p>
+</font>
+</div>

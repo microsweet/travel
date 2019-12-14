@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ 
+  <servlet>
+    
+    <servlet-name>DetailsServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.DetailsServlet</servlet-class>
+  </servlet>
+  
+  
+ <servlet-mapping>
+    <servlet-name>DetailsServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+
+
+
+ <servlet>
+    <servlet-name>SceneryServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.SceneryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>首页servlet</description>
+    <display-name>首页servlet</display-name>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.IndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>详细页面servlet</description>
+    <display-name>详细页面servlet</display-name>
+    <servlet-name>New_DetailsServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.New_DetailsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>数据列表页面</description>
+    <display-name>数据列表页面</display-name>
+    <servlet-name>NewListServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.NewListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>文章发布</description>
+    <display-name>文章发布</display-name>
+    <servlet-name>formServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.formServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>文章列表</description>
+    <display-name>文章列表</display-name>
+    <servlet-name>rightServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.rightServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>分頁下一頁</description>
+    <display-name>分頁下一頁</display-name>
+    <servlet-name>PageServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.PageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>后台登录页面</description>
+    <display-name>后台登录页面</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>上傳圖片</description>
+    <display-name>上傳圖片處理頁面</display-name>
+    <servlet-name>uploadServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.uploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>井陉简介</description>
+    <display-name>井陉简介</display-name>
+    <servlet-name>aboutServlet</servlet-name>
+    <servlet-class>com.yfzx.szcs.servlet.aboutServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ <servlet-mapping>
+    <servlet-name>SceneryServlet</servlet-name>
+    <url-pattern>*.qwe</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/Index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>New_DetailsServlet</servlet-name>
+    <url-pattern>/New_Details</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewListServlet</servlet-name>
+    <url-pattern>/NewList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>formServlet</servlet-name>
+    <url-pattern>/admin/form</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>rightServlet</servlet-name>
+    <url-pattern>/admin/right</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PageServlet</servlet-name>
+    <url-pattern>/servlet/PageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/admin/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>uploadServlet</servlet-name>
+    <url-pattern>/servlet/uploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>aboutServlet</servlet-name>
+    <url-pattern>/servlet/aboutServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
