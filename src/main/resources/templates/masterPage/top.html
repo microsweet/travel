@@ -11,32 +11,32 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="260" height="181" style="padding-left: 40px;"><img
-                        src="images/sysImages/logo.png" style="margin-left: -30px;" /></td>
+                        src="/images/sysImages/logo.png" style="margin-left: -30px;" /></td>
                     <td width=""></td>
                     <td class="nav_m" width="760">
                         <ul>
-                            <li><a href="index.jsp"> <img
-                                    src="images/sysImages/index_07.png" width="32" height="104" />
+                            <li><a href="/"> <img
+                                    src="/images/sysImages/index_07.png" width="32" height="104" />
                             </a></li>
                             <li><a href="about.jsp"> <img
-                                    src="images/sysImages/index_11.png" width="32" height="104" />
+                                    src="/images/sysImages/index_11.png" width="32" height="104" />
                             </a></li>
                             <li><a href="../../forum/index.jsp"
                                 tppabs=" news.aspx?type=fwzl&n_sort=50"> <img
-                                    src="images/sysImages/index_15.png" width="32" height="104" />
+                                    src="/images/sysImages/index_15.png" width="32" height="104" />
                             </a></li>
                             <li><a href="NewList?type=0"
                                 tppabs=" product.aspx?type=ykzz&n_sort=42"> <img
-                                    src="images/sysImages/index_17.png" width="32" height="104" />
+                                    src="/images/sysImages/index_17.png" width="32" height="104" />
                             </a></li>
                             <li><a href="NewList?type=4"> <img
-                                    src="images/sysImages/index_19.png" width="32" height="104" />
+                                    src="/images/sysImages/index_19.png" width="32" height="104" />
                             </a></li>
                             <li><a href="admin/login.jsp" target="_blank "> <img
-                                    src="images/sysImages/index_21.png" width="32" height="104" />
+                                    src="/images/sysImages/index_21.png" width="32" height="104" />
                             </a></li>
                             <li><a href="../../hhmap/index.html" target="_blank "> <img
-                                    src="images/sysImages/index_0025.png" width="32" height="104" />
+                                    src="/images/sysImages/index_0025.png" width="32" height="104" />
                             </a></li>
                         </ul>
                     </td>
@@ -44,17 +44,14 @@
             </table>
         </div>
         <div class="banner">
-            <script type="text/javascript" src="js/top.js"></script>
+            <script type="text/javascript" src="/js/top.js"></script>
             <div id="demo1" class="slideBox">
                 <ul class="items">
-                    <li><a href="" title="伏羲台"><img src="images/postImages/a.jpg"
-                            width="1000px" height="308px"> </a></li>
-
-                    <li><a href="" title="人祖庙"><img src="images/postImages/b.jpg"
-                            width="1000px" height="308px"> </a></li>
-                    <li><a href="" title="美术学院"><img src="images/postImages/c.jpg"
-                            width="1000px" height="308px"> </a></li>
-
+                    <li th:each="topNew : ${topNewList}">
+                        <a th:title="${topNew.title}">
+                            <img th:src="@{${topNew.src}}" width="1000px" height="308px"/>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

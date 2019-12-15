@@ -1,12 +1,10 @@
 package com.dechy.travel.show.model;
 
-import java.util.Date;
-
 public class NewDetail {
 	private Integer Id;
 	private String title;
-	private long createDate;
 	private String notice;
+	private String createDate;
 
 	public Integer getId() {
 		return Id;
@@ -20,17 +18,17 @@ public class NewDetail {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public long getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(long createDate) {
-		this.createDate = createDate;
-	}
 	public String getNotice() {
 		return notice;
 	}
 	public void setNotice(String notice) {
 		this.notice = notice;
+	}
+	public String getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 
 }

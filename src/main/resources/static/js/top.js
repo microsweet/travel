@@ -1,6 +1,6 @@
 jQuery(function($) {
 	$('#demo1').slideBox();
-	$('#demo2').slideBox({
+	/*$('#demo2').slideBox({
 		direction : 'top',//left,top#方向
 		duration : 0.3,//滚动持续时间，单位：秒
 		easing : 'linear',//swing,linear//滚动特效
@@ -18,5 +18,5 @@ jQuery(function($) {
 	$('#demo4').slideBox({
 		hideBottomBar : true
 	//隐藏底栏
-	});
+	});*/
 });

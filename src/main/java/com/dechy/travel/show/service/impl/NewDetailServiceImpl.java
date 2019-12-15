@@ -20,7 +20,6 @@ public class NewDetailServiceImpl implements NewDetailService {
 	@Override
 	public List<NewDetail> findNewDetails() {
 		// TODO Auto-generated method stub
-		System.out.println("dddd");
 		return this.newDetailMapper.findNewDetails();
 	}
 

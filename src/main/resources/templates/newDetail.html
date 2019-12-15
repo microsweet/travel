@@ -3,7 +3,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>新乐市旅游</title>
+<title th:text="${county.name}">title</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -11,16 +11,16 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="New_css/style.css" />
-<link rel="stylesheet" type="text/css" href="New_css/jquery.slideBox.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/jquery.slideBox.css"></link>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/tab.js"></script>
-<script type="text/javascript" src="js/swfobject_modified.js"></script>
-<script type="text/javascript" src="js/jquery.slideBox.js"></script>
-<script type="text/javascript" src="js/jquery.slideBox.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.js"></script>
+<script type="text/javascript" src="/js/plugins/tab.js"></script>
+<script type="text/javascript" src="/js/plugins/swfobject_modified.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.slideBox.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.slideBox.min.js"></script>
 
-<script type="text/javascript" src="js/newDetail.js"></script>
+<script type="text/javascript" src="/js/newDetail.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
         <div style="text-align: center;">
             <!--头部-->
             <div class="head">
-                <div th:replace="../static/masterPage/top :: top"></div>
+                <div th:replace="masterPage/top :: top"></div>
 	    </div>
             <!--首页中间内容-->
 
@@ -50,8 +50,8 @@
                                             cellpadding="0">
                                             <tr>
                                                 <td height="97" align="left" valign="bottom"><img
-                                                    src="New_images\l_jqdt.png"
-                                                    tppabs="New_images\l_jqdt.png" width="144"
+                                                    src="/images/sysImages/l_jqdt.png"
+                                                    tppabs="/images/sysImages/l_jqdt.png" width="144"
                                                     height="65" /></td>
                                             </tr>
                                             <tr>
@@ -68,7 +68,7 @@
                                 </tr>
                                 <tr>
                                     <td height="200" align="left" valign="top"><img
-                                        src="New_images\l_22.png" tppabs="  New_images\l_22.png"
+                                        src="/images/sysImages/l_22.png" tppabs="  /images/sysImages/l_22.png"
                                         width="172" height="194" /></td>
                                 </tr>
                                 <tr>
@@ -80,7 +80,7 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td height="55" valign="top"
-                                        style="background: url(New_images\l_03.png) no-repeat bottom">
+                                        style="background: url(/images/sysImages/l_03.png) no-repeat bottom">
                                         <table width="100%" border="0" cellspacing="0"
                                             cellpadding="0">
                                             <tr>
@@ -135,7 +135,7 @@
             <!--所有页面下方版权-->
 
             <!--所有页面下方版权-->
-	    <div th:replace="../static/masterPage/bottom.html :: bottom"></div>
+	    <div th:replace="masterPage/bottom.html :: bottom"></div>
         </div>
 </body>
 </html>
