@@ -1,11 +1,17 @@
 package com.dechy.travel.show.model;
 
 public class County {
+	//行政区名称
 	private String name;
+	//行政区简介
 	private String synopsis;
+	//主办方
 	private String sponsor;
+	//承办方
 	private String contractor;
+	//技术支持
 	private String technicalSupport;
+
 	public String getName() {
 		return name;
 	}

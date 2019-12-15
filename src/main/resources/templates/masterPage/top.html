@@ -18,15 +18,15 @@
                             <li><a href="/"> <img
                                     src="/images/sysImages/index_07.png" width="32" height="104" />
                             </a></li>
-                            <li><a href="about.jsp"> <img
+                            <li><a href="/about"> <img
                                     src="/images/sysImages/index_11.png" width="32" height="104" />
                             </a></li>
                             <li><a href="../../forum/index.jsp"
-                                tppabs=" news.aspx?type=fwzl&n_sort=50"> <img
+                                > <img
                                     src="/images/sysImages/index_15.png" width="32" height="104" />
                             </a></li>
                             <li><a href="NewList?type=0"
-                                tppabs=" product.aspx?type=ykzz&n_sort=42"> <img
+                                > <img
                                     src="/images/sysImages/index_17.png" width="32" height="104" />
                             </a></li>
                             <li><a href="NewList?type=4"> <img
@@ -47,7 +47,7 @@
             <script type="text/javascript" src="/js/top.js"></script>
             <div id="demo1" class="slideBox">
                 <ul class="items">
-                    <li th:each="topNew : ${topNewList}">
+                    <li th:each="topNew : ${newList}">
                         <a th:title="${topNew.title}">
                             <img th:src="@{${topNew.src}}" width="1000px" height="308px"/>
                         </a>

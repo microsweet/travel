@@ -6,7 +6,11 @@
 	</resultMap>
 	<select id="findNewDetails" resultType="com.dechy.travel.show.model.NewDetail" 
 	resultMap="orderFlow">
-		select * from new_detail
+		SELECT t.*, n.file_path as src FROM new_detail t LEFT JOIN files n ON t.id=n.fk and n.file_type=1
+		<where>
+			<if test="id!=null and id!=''">and t.id=#{id}</if>
+			<if test="newType!=null and newType!=''">and t.new_type=#{newType}</if>
+		</where>
 	</select>
 	
 </mapper>

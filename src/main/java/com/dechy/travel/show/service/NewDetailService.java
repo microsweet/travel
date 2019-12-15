@@ -6,5 +6,6 @@ import com.dechy.travel.show.model.NewDetail;
 
 public interface NewDetailService {
 	List<NewDetail> findNewDetails();
+	NewDetail findNewDetails(NewDetail newDetail);
 
 }

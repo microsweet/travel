@@ -1,9 +1,6 @@
 package com.dechy.travel.show.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,33 +25,11 @@ public class ShowController {
 	
 	@RequestMapping()
 	String show(Model model) {
-		List<Map<String, String>> newDetails = new ArrayList<Map<String, String>>();
-		Map<String, String> fxt = new HashMap<String, String>();
-		fxt.put("href", "/newDetails/188");
-		fxt.put("src", "/images/postImages/a.jpg");
-		fxt.put("title", "伏羲台");
-		Map<String, String> rzm = new HashMap<String, String>();
-		rzm.put("href", "/newDetails/189");
-		rzm.put("src", "/images/postImages/b.jpg");
-		rzm.put("title", "人祖庙");
-		Map<String, String> msxy = new HashMap<String, String>();
-		msxy.put("href", "/newDetails/190");
-		msxy.put("src", "/images/postImages/c.jpg");
-		msxy.put("title", "美术学院");
-		newDetails.add(fxt);
-		newDetails.add(rzm);
-		newDetails.add(msxy);
-		
-		List<Map<String, String>> topNewList= new ArrayList<Map<String, String>>();
-		topNewList.add(fxt);
-		topNewList.add(rzm);
-		topNewList.add(msxy);
-		
-		
+
+		List<NewDetail> newList = this.newDetailService.findNewDetails();
 		List<NewDetail> jqdtList = this.newDetailService.findNewDetails();
-		model.addAttribute("newDetails", newDetails);
 		model.addAttribute("jqdtList", jqdtList);
-		model.addAttribute("topNewList", topNewList);
+		model.addAttribute("newList", newList);
 		
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
@@ -62,30 +37,44 @@ public class ShowController {
 		return "index";
 	}
 
-	@GetMapping("/newDetails/{detailId}")
-	String newDetails(@PathVariable("detailId") Integer detailId, Model model) {
-		Map<String, String> fxt = new HashMap<String, String>();
-		fxt.put("href", "/newDetails/188");
-		fxt.put("src", "/images/postImages/a.jpg");
-		fxt.put("title", "伏羲台");
-		Map<String, String> rzm = new HashMap<String, String>();
-		rzm.put("href", "/newDetails/189");
-		rzm.put("src", "/images/postImages/b.jpg");
-		rzm.put("title", "人祖庙");
-		Map<String, String> msxy = new HashMap<String, String>();
-		msxy.put("href", "/newDetails/190");
-		msxy.put("src", "/images/postImages/c.jpg");
-		msxy.put("title", "美术学院");
-		
-		List<Map<String, String>> topNewList= new ArrayList<Map<String, String>>();
-		topNewList.add(fxt);
-		topNewList.add(rzm);
-		topNewList.add(msxy);
-		model.addAttribute("topNewList", topNewList);
+	@GetMapping("/newDetail/{detailId}/{newType}")
+	String newDetails(@PathVariable("detailId") Integer detailId, @PathVariable("newType") Integer newType, Model model) {
+
+		List<NewDetail> newList = this.newDetailService.findNewDetails();
+		model.addAttribute("newList", newList);
+
+		NewDetail newDetailParam = new NewDetail();
+		newDetailParam.setId(detailId);
+		newDetailParam.setNewType(newType);
+		NewDetail newDetail = this.newDetailService.findNewDetails(newDetailParam);
+		model.addAttribute("newDetail", newDetail);
 		
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 		
 		return "newDetail";
+	}
+
+	@GetMapping("/about")
+	String about(Model model) {
+		List<NewDetail> newList = this.newDetailService.findNewDetails();
+		model.addAttribute("newList", newList);
+
+		County county = this.countyService.findCounty();
+		model.addAttribute(county);
+
+		return "about";
+	}
+
+	@GetMapping("/newList/{newType}")
+	String newList(@PathVariable("newType") Integer newType, Model model) {
+
+		List<NewDetail> newList = this.newDetailService.findNewDetails();
+		model.addAttribute("newList", newList);
+		
+		County county = this.countyService.findCounty();
+		model.addAttribute(county);
+		
+		return "newList";
 	}
 }

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-
-<title th:text="${county.name}">title</title>
+<title th:text="${county.name}+'市旅游'">title</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -31,7 +29,7 @@
             <!--头部-->
             <div class="head">
                 <div th:replace="masterPage/top :: top"></div>
-	    </div>
+            </div>
             <!--首页中间内容-->
 
 
@@ -50,16 +48,15 @@
                                             cellpadding="0">
                                             <tr>
                                                 <td height="97" align="left" valign="bottom"><img
-                                                    src="/images/sysImages/l_jqdt.png"
-                                                    tppabs="/images/sysImages/l_jqdt.png" width="144"
+                                                    src="/images/sysImages/l_jqdt.png" width="144"
                                                     height="65" /></td>
                                             </tr>
                                             <tr>
                                                 <td class="left_titile">
                                                     <ul>
 
-                                                        <li><a href="NewList?type=4">周边景区</a></li>
-                                                        <li><a href="NewList?type=2">交通指南</a></li>
+                                                        <li><a href="newList">周边景区</a></li>
+                                                        <li><a href="newList">交通指南</a></li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -68,8 +65,7 @@
                                 </tr>
                                 <tr>
                                     <td height="200" align="left" valign="top"><img
-                                        src="/images/sysImages/l_22.png" tppabs="  /images/sysImages/l_22.png"
-                                        width="172" height="194" /></td>
+                                        src="/images/sysImages/l_22.png" width="172" height="194" /></td>
                                 </tr>
                                 <tr>
                                     <td height="300">&nbsp;</td>
@@ -85,10 +81,12 @@
                                             cellpadding="0">
                                             <tr>
                                                 <td width="443" height="55" class="right_title">信息正文</td>
-                                                <td width="349" align="right" class="adress">您现在位置：<a
-                                                    href="index.jsp">首页</a> <span id="itmeName"
-                                                    style="color: #825c1e;"></span>&nbsp;>&nbsp;<span
-                                                    style="color: #825c1e;">文章内容</span></td>
+                                                <td width="349" align="right" class="adress">您现在位置：
+                                                    <a href="/">首页</a> 
+                                                    <span id="itmeName" style="color: #825c1e;"></span>
+                                                    &nbsp;>&nbsp;
+                                                    <span style="color: #825c1e;">文章内容</span>
+                                                </td>
                                             </tr>
                                         </table>
                                     </td>
@@ -98,18 +96,12 @@
                                         <table width="100%" border="0" cellspacing="0"
                                             cellpadding="0">
                                             <tr>
-                                                <!--	<td height="50" align="center" valign="bottom"
-												class="Article_title"><div style="margin-left:100px;"> ${wzbt }</div>
-												
-											</td>
-											 <td height="50" align="center" valign="bottom"><div style="margin-right:20px;"><a href="jiemian.jsp">[地图查看]</a></div></td>
-											 -->
                                                 <td height="50" align="center" valign="bottom"
-                                                    class="Article_title">${wzbt }</td>
+                                                    class="Article_title" th:text="${newDetail.title}"></td>
                                             </tr>
                                             <tr>
-                                                <td height="40" align="center" class="from">信息来源：新乐市旅游地理信息系统
-                                                    &nbsp;&nbsp; 发布时间：${fbdate}</td>
+                                                <td height="40" align="center" class="from" th:text="'信息来源：新乐市旅游地理信息系统
+                                                    &nbsp;&nbsp; 发布时间：'+${newDetail.createDate}"></td>
                                             </tr>
 
                                             <tr>
@@ -121,7 +113,7 @@
                                 <tr>
                                     <td align="left" valign="top" width="792" class="article">
 
-                                        <p>${jianjie }</p>
+                                        <p th:text="${newDetail.notice}"></p>
                                     </td>
                                 </tr>
                             </table>
@@ -135,7 +127,7 @@
             <!--所有页面下方版权-->
 
             <!--所有页面下方版权-->
-	    <div th:replace="masterPage/bottom.html :: bottom"></div>
+            <div th:replace="masterPage/bottom.html :: bottom"></div>
         </div>
 </body>
 </html>

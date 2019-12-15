@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<base href="<%=basePath%>">
-<title th:text="${county.name}">title</title>
+<title th:text="${county.name}+'市旅游'">title</title>
 <meta name="keywords" th:content="${county.name}" />
 <meta name="description" content="${county.name}" />
 <meta name="robots" content="all" />
 <meta content="MSHTML 6.00.2900.3268" name="GENERATOR" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/jquery.slideBox.css"></link>
-<link rel="stylesheet" type="text/css" href="css/index.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/jquery.slideBox.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/index.css"></link>
 
-<script type="text/javascript" src="js/plugins/jquery.js"></script>
-<script type="text/javascript" src="js/plugins/tab.js"></script>
-<script type="text/javascript" src="js/plugins/swfobject_modified.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.js"></script>
+<script type="text/javascript" src="/js/plugins/tab.js"></script>
+<script type="text/javascript" src="/js/plugins/swfobject_modified.js"></script>
 
-<script type="text/javascript" src="js/plugins/jquery.slideBox.js"></script>
-<script type="text/javascript" src="js/plugins/jquery.slideBox.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.slideBox.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.slideBox.min.js"></script>
 
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
 
 </head>
 
@@ -46,7 +45,7 @@
                                 <tr>
                                     <td height="190" colspan="2" valign="top" align="center"
                                         style="text-align: center; padding-top: 5px; padding-left: 28px;"
-					                    class="t_w">
+                                        class="t_w">
 
 
                                         <div id="tpcbanner">
@@ -63,10 +62,11 @@
 
                                             </ul>
                                             <div id="tpcbanner_list">
-                                                <a th:each="detailMap : ${newDetails}"
-                                                   th:href="@{${detailMap.href}}" target="_blank">
-                                                    <img th:src="@{${detailMap.src}}" width="269px"
-                                                         th:height="177px" th:title="${detailMap.title}" th:alt="${detailMap.title}">
+                                                <a th:each="newDetail : ${newList}"
+                                                    th:href="@{'/newDetail/'+${newDetail.id}+'/1'}" target="_blank">
+                                                    <img th:src="@{${newDetail.src}}" width="269px"
+                                                    th:height="177px" th:title="${newDetail.title}"
+                                                    th:alt="${newDetail.title}">
                                                 </a>
                                             </div>
                                         </div>
@@ -77,14 +77,13 @@
                         <td width="415" height="260" valign="top">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td width="330" height="60">
-                                        <img src="images/sysImages/index_03.png" width="134" height="48" />
+                                    <td width="330" height="60"><img
+                                        src="images/sysImages/index_03.png" width="134" height="48" />
                                     </td>
-                                    <td height="60">
-                                        <a href="NewList?type=0"> 
-                                            <img src="images/sysImages/index_06.png" width="53" height="19" />
-                                        </a>
-                                    </td>
+                                    <td height="60"><a href="NewList?type=0"> <img
+                                            src="images/sysImages/index_06.png" width="53"
+                                            height="19" />
+                                    </a></td>
                                 </tr>
                                 <tr>
                                     <td height="170" colspan="2" align="left" valign="top"
@@ -97,16 +96,17 @@
                                                 <td>
                                                     <ul class="">
                                                         <li>
-                                                            <table cellpadding="0"
-                                                                cellspacing="0" width="90%"
-                                                                border="0" class="fontcss">
+                                                            <table cellpadding="0" cellspacing="0"
+                                                                width="90%" border="0"
+                                                                class="fontcss">
                                                                 <tr>
-                                                                    <td align="left">
-                                                                        <a th:href="@{newDetail/{href}(href=${jqdt.id})}"
-                                                                            th:title="${jqdt.title}" th:text="${jqdt.title}">
-                                                                        </a>
-                                                                    </td>
-                                                                    <td align="right" th:text="${jqdt.createDate}"></td>
+                                                                    <td align="left"><a
+                                                                        th:href="@{newDetail/{href}(href=${jqdt.id})}"
+                                                                        th:title="${jqdt.title}"
+                                                                        th:text="${jqdt.title}">
+                                                                    </a></td>
+                                                                    <td align="right"
+                                                                        th:text="${jqdt.createDate}"></td>
                                                                 </tr>
                                                             </table> </span>
                                                         </li>
@@ -289,8 +289,7 @@
 
             <!--二级右边内容-->
             <!--所有页面下方版权-->
-	    <div th:replace="masterPage/bottom.html :: bottom"></div>
-            <!-- 	 -->
+            <div th:replace="masterPage/bottom.html :: bottom"></div>
         </form>
     </div>
 </body>
