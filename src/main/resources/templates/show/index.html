@@ -101,7 +101,7 @@
                                                                 class="fontcss">
                                                                 <tr>
                                                                     <td align="left"><a
-                                                                        th:href="@{newDetail/{href}(href=${jqdt.id})}"
+                                                                        th:href="@{newDetail/{href}/1(href=${jqdt.id})}"
                                                                         th:title="${jqdt.title}"
                                                                         th:text="${jqdt.title}">
                                                                     </a></td>
@@ -142,7 +142,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td height="49" align="right"><a href="about.jsp"
+                                    <td height="49" align="right"><a href="/about"
                                         class="fontcss">【详细介绍】</a></td>
                                 </tr>
                             </table>
@@ -151,142 +151,7 @@
                     </tr>
                 </table>
             </div>
-
-
-            <div class="part_5">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="47" colspan="3"><img src="images/sysImages/index_80.png"
-                            width="1002" height="47" /></td>
-                    </tr>
-                    <tr>
-                        <td width="334" height="100">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="120" height="100" align="center" valign="middle">
-                                        <img src="images/sysImages/index_89.png" width="103"
-                                        height="81" />
-                                    </td>
-                                    <td height="100" valign="middle" class="fwzn">
-                                        <!--游客须知-->
-                                        <table id="ctl00_Index_NewsList2_list" cellspacing="0"
-                                            cellpadding="0" border="0"
-                                            style="width: 100%; border-collapse: collapse;">
-                                            <c:forEach items="${list_ykxz }" var="ykxz">
-                                                <tr>
-                                                    <td>
-
-                                                        <ul class="">
-                                                            <li>
-                                                                <table cellpadding="0"
-                                                                    cellspacing="0" width="90%"
-                                                                    border="0" class="fontcss">
-                                                                    <tr>
-                                                                        <td align="left"><a
-                                                                            href="New_Details?ID=${ykxz.ID }"
-                                                                            title="${ykxz.WZBT }">
-                                                                                ${ykxz.WZBT } </a></td>
-
-                                                                    </tr>
-                                                                </table> </span>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-
-                                        </table> <br />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="334">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="120" height="100" align="center" valign="middle">
-                                        <img onclick='window.open("../QHmap/webpage/map/map.jsp")'
-                                        src="images/sysImages/index_86.png" width="103" height="81" />
-                                    </td>
-                                    <td height="100" valign="middle" class="fwzn">
-                                        <!--交通指南-->
-                                        <table id="ctl00_Index_NewsList3_list" cellspacing="0"
-                                            cellpadding="0" border="0"
-                                            style="width: 100%; border-collapse: collapse;">
-                                            <c:forEach items="${list_jtzn }" var="s2">
-                                                <tr>
-                                                    <td>
-
-                                                        <ul class="">
-                                                            <li>
-                                                                <table cellpadding="0"
-                                                                    cellspacing="0" width="90%"
-                                                                    border="0" class="fontcss">
-                                                                    <tr>
-                                                                        <td align="left"><a
-                                                                            href="New_Details?ID=${s2.ID }"
-                                                                            title="${s2.WZBT }">${s2.WZBT
-                                                                                } </a></td>
-
-                                                                    </tr>
-                                                                </table>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </table> <br />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="334">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="120" height="100" align="center" valign="middle">
-                                        <img src="images/sysImages/index_83.png" width="103"
-                                        height="81" />
-                                    </td>
-                                    <td height="100" valign="middle" class="fwzn">
-                                        <!--周边景区-->
-                                        <table id="ctl00_Index_NewsList4_list" cellspacing="0"
-                                            cellpadding="0" border="0"
-                                            style="width: 100%; border-collapse: collapse;">
-                                            <c:forEach items="${list_zbjq }" var="jq">
-                                                <tr>
-                                                    <td>
-
-                                                        <ul class="">
-                                                            <li>
-                                                                <table cellpadding="0"
-                                                                    cellspacing="0" width="90%"
-                                                                    border="0" class="fontcss">
-                                                                    <tr>
-                                                                        <td align="left"><a
-                                                                            href="New_Details?ID=${jq.ID }"
-                                                                            title="${jq.WZBT } ">
-                                                                                ${jq.WZBT } </a></td>
-
-                                                                    </tr>
-                                                                </table> </span>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </table> <br />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
             <!--二级左边导航-->
-
-
-
             <!--二级右边内容-->
             <!--所有页面下方版权-->
             <div th:replace="masterPage/bottom.html :: bottom"></div>

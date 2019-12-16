@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="/css/login.style.css" />
+<script type="text/javascript" src="/js/plugins/jquery.js"></script>
+
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active")
+		$(this).addClass("active");
+	});
+	
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})	
+</script>
+</head>
+
+<body style="background:#f0f9fd;">
+	<div class="lefttop"><span></span>控制面板</div>
+    <dl class="leftmenu">
+    <dd>
+    <div class="title">
+    <span><img src="/images/admin/leftico01.png" /></span>管理信息
+    </div>
+    	<ul class="menuson">
+        <!--<li class="active"><cite></cite><a href="index.html" target="rightFrame">后台首页</a><i></i></li>-->
+        <li><cite></cite><a href="right?type=fist" target="rightFrame">文章管理</a><i></i></li>
+        <li><cite></cite><a href="form.jsp" target="rightFrame">信息发布</a><i></i></li>
+        </ul>    
+    </dd>
+    </dl>
+</body>
+</html>

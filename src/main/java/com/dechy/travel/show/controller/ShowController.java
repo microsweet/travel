@@ -34,7 +34,7 @@ public class ShowController {
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 
-		return "index";
+		return "/show/index";
 	}
 
 	@GetMapping("/newDetail/{detailId}/{newType}")
@@ -52,7 +52,7 @@ public class ShowController {
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 		
-		return "newDetail";
+		return "/show/newDetail";
 	}
 
 	@GetMapping("/about")
@@ -63,7 +63,7 @@ public class ShowController {
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 
-		return "about";
+		return "/show/about";
 	}
 
 	@GetMapping("/newList/{newType}")
@@ -75,6 +75,7 @@ public class ShowController {
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 		
-		return "newList";
+		return "/show/newList";
 	}
+	
 }

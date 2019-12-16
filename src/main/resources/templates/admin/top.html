@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="/css/login.style.css" />
+<script type="text/javascript" src="/js/plugins/jquery.js"></script>
+<script type="text/javascript">
+$(function(){	
+	//顶部导航切换
+	$(".nav li a").click(function(){
+		$(".nav li a.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+</script>
+</head>
+
+<body style="background: url(/images/admin/topbg.gif) repeat-x;">
+	<div class="topleft">
+		<a href="main.html" target="_parent"><img src="/images/admin/logo.png"
+			title="系统首页" /></a>
+	</div>
+	<div class="topright">
+		<ul>
+			<li><span><img src="/images/admin/help.png" title="帮助"
+					class="helpimg" /></span><a href="#">帮助</a></li>
+			<li><a href="/" target="_blank ">网站首页</a></li>
+			<li><a href="/admin/login" target="_parent">退出</a></li>
+		</ul>
+		<div class="user">
+			<span th:text="${userName}"></span>
+		</div>
+	</div>
+</body>
+</html>
