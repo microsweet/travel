@@ -63,24 +63,42 @@ function insertTable(rows){
 				 +'<td>'+rows[i].title+'</td>'
 				 +'<td>'+rows[i].createDate+'</td>'
 				 +'<td>'+rows[i].newTypeName+'</td>'
-				 +'<td><a href="/admin/form"'
-				 +'class="tablelink">查看</a> <a'
-				 +'href="form?ID=${company.ID}&type=edit" class="tablelink">编辑</a> <a'
-				 +'href="right?ID=${company.ID}" class="tablelink"> 删除</a></td>'
-				 +'</tr>';
+				 +'<td>'
+				 +'<a href="/admin/form/view?id=' + rows[i].id + '" class="tablelink">查看</a>'
+				 +'<a href="/admin/form/edit?id=' + rows[i].id + '" class="tablelink"> 编辑</a>'
+				 +'<a onclick="deleteArticle(\'' + rows[i].id + '\')" class="tablelink" style="cursor: pointer;"> 删除</a>'
+				 +'</td>'
+				 +'</tr>';	
 		}else{
-			html += '<tr th:each="row : ${map.list}">'
+			html += '<tr>'
 				 +'<td>'+rows[i].title+'</td>'
 				 +'<td>'+rows[i].createDate+'</td>'
 				 +'<td>'+rows[i].newTypeName+'</td>'
-				 +'<td><a href="form?ID=${company.ID}&type=see"'
-				 +'class="tablelink">查看</a> <a'
-				 +'href="form?ID=${company.ID}&type=edit" class="tablelink">编辑</a> <a'
-				 +'href="right?ID=${company.ID}" class="tablelink"> 删除</a></td>'
+				 +'<td>'
+				 +'<a href="/admin/form/view?id=' + rows[i].id + '" class="tablelink">查看</a>'
+				 +'<a href="/admin/form/edit?id=' + rows[i].id + '" class="tablelink"> 编辑</a>'
+				 +'<a onclick="deleteArticle(\'' + rows[i].id + '\')" class="tablelink" style="cursor: pointer;"> 删除</a>'
+				 +'</td>'
 				 +'</tr>';	
 		}
 		
 	}
 	$(".tablelist tbody").html(html);
 	
+}
+
+
+function deleteArticle(id){
+	$.ajax({
+		url: '/admin/deleteArticle',
+		type: 'post',
+		dataType: 'json',
+		data: {id: id},
+		success: function(data){
+			if(data){
+				window.location.href='/admin/right';
+			}
+		},
+		error: function(data){}
+	});	
 }

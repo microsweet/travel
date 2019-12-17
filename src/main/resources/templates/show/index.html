@@ -62,7 +62,7 @@
                                             </ul>
                                             <div id="tpcbanner_list">
                                                 <a th:each="newDetail : ${newList}"
-                                                    th:href="@{'/newDetail/'+${newDetail.id}+'/1'}" target="_blank">
+                                                    th:href="@{'/newDetail/'+${newDetail.id}+'/'+${newDetail.newType}}" target="_blank">
                                                     <img th:src="@{${newDetail.src}}" width="269px"
                                                     th:height="177px" th:title="${newDetail.title}"
                                                     th:alt="${newDetail.title}">

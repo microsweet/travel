@@ -45,4 +45,30 @@ public class NewDetailServiceImpl implements NewDetailService {
 		result.put("page", newDetail.getPage());
 		return result;
 	}
+	
+	@Override
+	public boolean saveNewDetail(NewDetail newDetail) {
+		try {
+			if(newDetail.getId()==null) {
+				this.newDetailMapper.insertNewDetail(newDetail);
+			}else {
+				this.newDetailMapper.updateNewDetail(newDetail);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean deleteNewDetail(NewDetail newDetail) {
+		try {
+			this.newDetailMapper.deleteNewDetail(newDetail);
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		return true;
+	}
 }

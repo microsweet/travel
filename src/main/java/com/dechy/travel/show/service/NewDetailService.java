@@ -11,4 +11,8 @@ public interface NewDetailService {
 	NewDetail findNewDetail(NewDetail newDetail);
 
 	Map<String, Object> findNewDetailList(NewDetail newDetail);
+	
+	boolean saveNewDetail(NewDetail newDetail);
+
+	boolean deleteNewDetail(NewDetail newDetail);
 }

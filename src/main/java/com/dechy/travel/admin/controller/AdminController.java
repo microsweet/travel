@@ -1,5 +1,7 @@
 package com.dechy.travel.admin.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -76,13 +78,20 @@ public class AdminController {
 		return "/admin/right";
 	}
 
-	@GetMapping("/form")
-	String form(Model model) {
+	@GetMapping("/form/{type}")
+	String form(Model model, NewDetail newDetail, @PathVariable("type") String type) {
+		model.addAttribute("type", type);
+
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 		
 		List<DmNewType> newTypeList = this.dmNewTypeService.findNewType();
 		model.addAttribute("newTypeList", newTypeList);
+		
+		if(newDetail.getId()!=null) {
+			newDetail = this.newDetailService.findNewDetail(newDetail);
+		}
+		model.addAttribute(newDetail);
 		
 		return "/admin/form";
 	}
@@ -92,5 +101,20 @@ public class AdminController {
 	Map<String, Object> findArticle(NewDetail newDetail) {
 		Map<String, Object> map = this.newDetailService.findNewDetailList(newDetail);
 		return map;
+	}
+	
+	@PostMapping("/saveArticle")
+	@ResponseBody
+	boolean saveArticle(NewDetail newDetail) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		newDetail.setCreateDate(df.format(new Date()));
+		boolean result = this.newDetailService.saveNewDetail(newDetail);
+		return result;
+	}
+	
+	@PostMapping("deleteArticle")
+	@ResponseBody
+	boolean deleteArticle(NewDetail newDetail) {
+		return this.newDetailService.deleteNewDetail(newDetail);
 	}
 }

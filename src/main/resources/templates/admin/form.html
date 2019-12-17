@@ -34,16 +34,17 @@
 					<div class="formtext">
 						Hi，<b>admin</b>，欢迎您使用信息发布功能！
 					</div>
+					<input type="hidden" id="id" name="id" th:value="${newDetail.id}">
 					<ul class="forminfo">
 						<li><label>文章标题<b>*</b></label>
-							<input id="wzbt" name="wzbt" type="text" class="dfinput" style="width: 518px;" /> 
+							<input id="title" name="title" type="text" class="dfinput" style="width: 518px;" th:value="${newDetail.title}"/> 
 							<font style="font-weight: bold; font-style: italic;" color=red>*填写文章标题</font>
 						</li>
 						<li><label>文章类型<b>*</b></label>
 							<div class="vocation">
-								<select id="wzlx" name="wzlx" class="select1">
+								<select id="newType" name="newType" class="select1">
 									<option th:each="newType : ${newTypeList}" 
-									th:value="${newType.dmType}" th:text="${newType.nameType}"></option>
+									th:value="${newType.dmType}" th:text="${newType.nameType}" th:if="${newType.dmType==newDetail.newType?'selected':''}"></option>
 								</select>
 							</div></li>
 						<li><label>文章内容<b>*</b></label> 
@@ -51,13 +52,16 @@
 								style="width: 700px; height: 350px; visibility: hidden;">
 						</textarea> -->
 						<div style="width: 700px; height: 350px; display: inline-block;">
-							<div id="content" ></div>
+                            <input id="notice" type="hidden" th:value="${newDetail.notice}" />
+							<div id="content"></div>
 						</div>
 						</li>
 						<li><label>&nbsp;</label>
-							<input name="" type="submit" class="btn" value="马上发布"/> &nbsp;&nbsp;
-							<font style="font-weight: bold; font-style: italic;" color=red></font>
-							<input type="hidden" id="getID" name="getID" value=${ID}>
+							<font style="font-weight: bold; font-style: italic;" color=red>
+                                <a onclick="saveArticle()" style="margin-top: 10px; display: inline-block; background: url(/images/admin/toolbg.gif) repeat-x; border: 1px solid #d3dbde; height: 33px; padding: 10px; border-radius: 3px; cursor: pointer; text-decoration: blink;"> 
+                                    马上发布
+                                </a>
+                            </font>
 						</li>
 					</ul>
 				</div>

@@ -3,6 +3,7 @@
 <mapper namespace="com.dechy.travel.show.mapper.NewDetailMapper">
 	<resultMap type="com.dechy.travel.show.model.NewDetail" id="orderFlow">
 		<result column="create_date" property="createDate" />
+		<result column="new_Type" property="newType" />
 	</resultMap>
 	<select id="findNewDetails" resultType="com.dechy.travel.show.model.NewDetail" 
 	resultMap="orderFlow">
@@ -22,5 +23,23 @@
 			<if test="newType!=null and newType!=''">and t.new_type=#{newType}</if>
 		</where>
 	</select>
+	
+	<insert id="insertNewDetail" parameterType="com.dechy.travel.show.model.NewDetail">
+		insert into new_detail values (null, #{title}, #{notice}, #{createDate}, #{newType})
+	</insert>
+	
+	<update id="updateNewDetail" parameterType="com.dechy.travel.show.model.NewDetail">
+		update new_detail  
+		<set>
+			<if test="title != null">title = #{title}, </if>
+			<if test="notice != null">notice = #{notice}, </if>
+			<if test="newType != null">new_type = #{newType}, </if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteNewDetail" parameterType="com.dechy.travel.show.model.NewDetail">
+		delete from new_detail where id=#{id}
+	</delete>
 	
 </mapper>

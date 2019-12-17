@@ -23,6 +23,28 @@ function initEditor(){
 		  height: 300,                 // set editor height
 		  minHeight: null,             // set minimum height of editor
 		  maxHeight: null,             // set maximum height of editor
-		  focus: true                  // set focus to editable area after initializing summernote
+		  focus: true,                  // set focus to editable area after initializing summernote
+		  lang: 'zh-CN'
+	});
+	var notice = $('#notice').val()
+	$('#content').summernote('pasteHTML', notice.substr(3, notice.length-7));
+}
+
+function saveArticle(){
+	var id = $('#id').val();
+	var title = $("#title").val();
+	var newType = $("#newType").val();
+	var notice = $("#content").summernote("code");
+	$.ajax({
+		url: '/admin/saveArticle',
+		type: 'post',
+		dataType: 'json',
+		data: {id: id, title: title, newType: newType, notice: notice},
+		success: function(data){
+			if(data){
+				window.location.href='/admin/right';
+			}
+		},
+		error: function(data){}
 	});
 }
