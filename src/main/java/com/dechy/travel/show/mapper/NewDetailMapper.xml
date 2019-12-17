@@ -6,7 +6,17 @@
 	</resultMap>
 	<select id="findNewDetails" resultType="com.dechy.travel.show.model.NewDetail" 
 	resultMap="orderFlow">
-		SELECT t.*, n.file_path as src FROM new_detail t LEFT JOIN files n ON t.id=n.fk and n.file_type=1
+		SELECT t.*, n.file_path as src, m.name_type as newTypeName FROM new_detail t LEFT JOIN files n ON t.id=n.fk and n.file_type=1 
+		LEFT JOIN dm_new_type m ON t.new_type=m.dm_type
+		<where>
+			<if test="id!=null and id!=''">and t.id=#{id}</if>
+			<if test="newType!=null and newType!=''">and t.new_type=#{newType}</if>
+		</where>
+		<if test="page!=null and limit!=null"> limit #{limit}*(#{page}-10), #{limit}*#{page}</if>
+	</select>
+	
+	<select id="findNewDetailsCount" resultType="int">
+		SELECT count(1) FROM new_detail t LEFT JOIN files n ON t.id=n.fk and n.file_type=1
 		<where>
 			<if test="id!=null and id!=''">and t.id=#{id}</if>
 			<if test="newType!=null and newType!=''">and t.new_type=#{newType}</if>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dechy.travel.admin.mapper.DmNewTypeMapper">
+	<resultMap type="com.dechy.travel.admin.model.DmNewType" id="orderFlow">
+		<result column="dm_type" property="dmType" />
+		<result column="name_type" property="nameType" />
+	</resultMap>
+	<select id="findNewType" resultType="com.dechy.travel.admin.model.DmNewType" 
+	resultMap="orderFlow">
+		select * from dm_new_type t 
+	</select>
+	
+</mapper>

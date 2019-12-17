@@ -53,7 +53,6 @@
                                             <!--标题背景-->
                                             <div id="tpcbanner_info"></div>
                                             <!--标题-->
-
                                             <ul>
 
                                                 <li class="on">1</li>
@@ -92,7 +91,7 @@
                                         <table id="ctl00_Index_nlist_list" cellspacing="0"
                                             cellpadding="0" border="0"
                                             style="width: 100%; border-collapse: collapse;">
-                                            <tr th:each="jqdt : ${jqdtList}">
+                                            <tr th:each="jqdt : ${newList}">
                                                 <td>
                                                     <ul class="">
                                                         <li>
@@ -101,7 +100,7 @@
                                                                 class="fontcss">
                                                                 <tr>
                                                                     <td align="left"><a
-                                                                        th:href="@{newDetail/{href}/1(href=${jqdt.id})}"
+                                                                        th:href="@{newDetail/{href}/{type}(href=${jqdt.id},type=${jqdt.newType})}"
                                                                         th:title="${jqdt.title}"
                                                                         th:text="${jqdt.title}">
                                                                     </a></td>

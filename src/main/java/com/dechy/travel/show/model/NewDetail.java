@@ -11,10 +11,16 @@ public class NewDetail {
 	private Integer ifView;
 	//创建时间
 	private String createDate;
-	//新闻类型
+	//新闻类型代码
 	private Integer newType;
 	//预览图片路径
 	private String src;
+	//查询list时的页码
+	private Integer page;
+	//查询list时的页面大小
+	private Integer limit;
+	//新闻类型
+	private String newTypeName;
 
 	public Integer getId() {
 		return Id;
@@ -57,6 +63,24 @@ public class NewDetail {
 	}
 	public void setSrc(String src) {
 		this.src = src;
+	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getLimit() {
+		return limit;
+	}
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+	public String getNewTypeName() {
+		return newTypeName;
+	}
+	public void setNewTypeName(String newTypeName) {
+		this.newTypeName = newTypeName;
 	}
 
 }

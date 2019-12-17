@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* CSS Document */
+.btn-group > .btn, .btn-group-vertical > .btn{width: auto;}
+.forminfo li i{padding-left: 0;}
+dl, dt, dd, span{display: inline;}

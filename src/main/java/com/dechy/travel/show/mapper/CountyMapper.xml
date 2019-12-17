@@ -6,7 +6,7 @@
 	</resultMap>
 	<select id="findCounty" resultType="com.dechy.travel.show.model.County" 
 	resultMap="orderFlow">
-		select * from county
+		select t.id, t.name, n.notice as synopsis, t.sponsor, t.contractor, t.technical_support from county t left join new_detail n on t.synopsis=n.id
 	</select>
 	
 </mapper>

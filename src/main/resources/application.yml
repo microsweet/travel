@@ -20,3 +20,6 @@ spring:
 mybatis:
   mapper-locations:
     classpath : static/mapper/*.xml, com/dechy/travel/*/mapper/*.xml
+  configuration: 
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    

@@ -6,5 +6,6 @@ import com.dechy.travel.show.model.NewDetail;
 
 public interface NewDetailMapper {
 	List<NewDetail> findNewDetails(NewDetail newDetail);
+	Integer findNewDetailsCount(NewDetail newDetail);
 
 }

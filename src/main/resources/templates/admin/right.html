@@ -3,116 +3,122 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link rel="stylesheet" type="text/css" href="/css/login.style.css"/>
-<link rel="stylesheet" type="text/css" href="/css/select.css"/>
+<link rel="stylesheet" type="text/css" href="/css/login.style.css" />
+<link rel="stylesheet" type="text/css" href="/css/select.css" />
 
 <script type="text/javascript" src="/js/plugins/jquery.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="/js/plugins/select-ui.min.js"></script>
 <script type="text/javascript" src="/js/admin/right.js"></script>
-
 </head>
 
-
 <body>
-	<form action="right?type=query" method="post">
-		<div class="place">
-			<span>位置：</span>
-			<ul class="placeul">
-				<li><a href="#">首页</a></li>
-				<li><a href="#">数据表</a></li>
-				<li><a href="#">文章管理</a></li>
-			</ul>
-		</div>
+	<div class="place">
+		<span>位置：</span>
+		<ul class="placeul">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">数据表</a></li>
+			<li><a href="#">文章管理</a></li>
+		</ul>
+	</div>
 
-		<div class="rightinfo">
-			<div id="tab2" class="tabson">
+	<div class="rightinfo">
+		<div id="tab2" class="tabson">
+			<form id="searchForm" style="display: inline-block;">
+				<input type="hidden" id="page" name="page" value="1"/>
+				<input type="hidden" id="limit" name="limit" value="10"/>
+				<input type="hidden" id="total" name="total"/>
 				<ul class="seachform" style="margin-left: 20px">
-					<li><label>文章标题</label>
-						<input name="wzbt" id="wzbt" type="text" class="scinput" value="" />
+					<li><label>文章标题</label> 
+						<input name="title"id="wzbt" type="text" class="scinput" />
 					</li>
 					<li><label>文章类型</label>
 						<div class="vocation">
-							<select class="select3" id="wzlx" name="wzlx">
+							<select class="select3" id="wzlx" name="newType">
 								<option value="">全部</option>
-								<option value="1">新乐文化</option>
-								<option value="2">新乐简介</option>
-								<input type="hidden" id="select_wzlx" value="" />
+								<option th:each="newType : ${newTypeList}"
+									th:value="${newType.dmType}" th:text="${newType.nameType}"></option>
 							</select>
 						</div>
 					</li>
-
-					<li><label>&nbsp;</label><a href="right?type=query">
-						<input name="" type="submit" class="scbtn" value="查询" /> 
-					</a></li>
-					<ul class="toolbar">
-						<li class="click">
-							<a href="form.jsp">
-								<span><img src="/images/admin/t01.png" /></span>添加
-							</a>
-						</li>
-					</ul>
 				</ul>
-				<table class="tablelist">
-					<thead>
-						<tr>
-							<th>标题</th>
-							<th>发布时间</th>
-							<th>文章类型</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>${company.WZBT}</td>
-							<td>${company.TIME}</td>
-							<td></td>
-							<td>
-								<a href="form?ID=${company.ID}&type=see" class="tablelink">查看</a> 
-								<a href="form?ID=${company.ID}&type=edit" class="tablelink">编辑</a>
-								<a href="right?ID=${company.ID}" class="tablelink"> 删除</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			</form>
+			<div style="display: inline-block;">
+			<ul class="toolbar" style="height: 46px;">
+				<li style="padding-left: 10px; text-align: center;">
+					<a onclick="findArticle()" style="display: block; width: 45px;"> 
+						查询
+					</a>
+				</li>
+				<li class="click">
+					<a href="/admin/form">
+						<span><img src="/images/admin/t01.png" /></span>添加
+					</a>
+				</li>
+			</ul>
 			</div>
-			<div class="pagin">
-				<div class="message">
-					共<i class="blue">${pageBean.recordCnt}</i>条记录，当前显示第&nbsp;<i
-						class="blue">${pageBean.curPage}&nbsp;</i>页
-				</div>
-				<ul class="paginList">
-					<li class="paginItem"><a
-						href="${pageContext.request.contextPath}/admin/right?type=fist">首页</a>
-					</li>
-					<li class="paginItem "><a
-						href="${pageContext.request.contextPath}/admin/right?curPage=${pageBean.prePage}">上页</a>
-					</li>
-					<li class="paginItem"><a
-						href="javaScript:toPage('${pageBean.nextPage}')">下页</a></li>
-					<li class="paginItem"><a
-						href="${pageContext.request.contextPath}/admin/right?curPage=${pageBean.pageCnt}">尾页</a>
-					</li>
-				</ul>
+			<table class="tablelist">
+				<thead>
+					<tr>
+						<th>标题</th>
+						<th>发布时间</th>
+						<th>文章类型</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- <tr th:each="row : ${map.list}">
+						<td th:text="${row.title}"></td>
+						<td th:text="${row.createDate}"></td>
+						<td th:text="${row.newType}"></td>
+						<td><a href="form?ID=${company.ID}&type=see"
+							class="tablelink">查看</a> <a
+							href="form?ID=${company.ID}&type=edit" class="tablelink">编辑</a> <a
+							href="right?ID=${company.ID}" class="tablelink"> 删除</a></td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+		<div class="pagin">
+			<div class="message">
+				共
+				<i class="blue" id="totalView"></i>
+				条记录，当前显示第&nbsp;
+				<i class="blue" id="pageView"></i>
+				&nbsp;页
 			</div>
-			<div class="tip">
-				<div class="tiptop">
-					<span>提示信息</span><a></a>
+			<ul class="paginList">
+				<li class="paginItem">
+					<a onclick="toPage('1')" style="cursor: pointer;">首页</a>
+				</li>
+				<li class="paginItem ">
+					<a onclick="toPage('2')" style="cursor: pointer;">上页</a>
+				</li>
+				<li class="paginItem">
+					<a onclick="toPage('3')" style="cursor: pointer;">下页</a>
+				</li>
+				<li class="paginItem">
+					<a onclick="toPage('4')" style="cursor: pointer;">尾页</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tip">
+			<div class="tiptop">
+				<span>提示信息</span><a></a>
+			</div>
+			<div class="tipinfo">
+				<span><img src="/images/admin/ticon.png" /> </span>
+				<div class="tipright">
+					<p>是否确认对信息的修改 ？</p>
+					<cite>如果是请点击确定按钮 ，否则请点取消。</cite>
 				</div>
-				<div class="tipinfo">
-					<span><img src="/images/admin/ticon.png" /> </span>
-					<div class="tipright">
-						<p>是否确认对信息的修改 ？</p>
-						<cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-					</div>
-				</div>
-				<div class="tipbtn">
-					<input name="" type="button" class="sure" value="确定" />&nbsp; 
-					<input name="" type="button" class="cancel" value="取消" />
-				</div>
+			</div>
+			<div class="tipbtn">
+				<input name="" type="button" class="sure" value="确定" />&nbsp; <input
+					name="" type="button" class="cancel" value="取消" />
 			</div>
 		</div>
-	</form>
+	</div>
 </body>
 
 </html>

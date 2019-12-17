@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="/css/login.style.css" />
+<link rel="stylesheet" type="text/css" href="/css/select.css" />
+<link rel="stylesheet" type="text/css" href="/js/bootstrap-3.3.7-dist/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/js/summernote-master/dist/summernote.css" />
+<link rel="stylesheet" type="text/css" href="/css/form.css" />
+
+<script type="text/javascript" src="/js/plugins/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="/js/plugins/select-ui.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/summernote-master/dist/summernote.js"></script>
+<script type="text/javascript" src="/js/summernote-master/dist/lang/summernote-zh-CN.js"></script>
+
+<script type="text/javascript" src="/js/admin/form.js"></script>
+</head>
+
+<body>
+	<form action="form?type=add" method="post">
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">发布信息</a></li>
+			</ul>
+		</div>
+		<div class="formbody">
+			<div id="usual1" class="usual">
+				<div id="tab1" class="tabson">
+					<div class="formtext">
+						Hi，<b>admin</b>，欢迎您使用信息发布功能！
+					</div>
+					<ul class="forminfo">
+						<li><label>文章标题<b>*</b></label>
+							<input id="wzbt" name="wzbt" type="text" class="dfinput" style="width: 518px;" /> 
+							<font style="font-weight: bold; font-style: italic;" color=red>*填写文章标题</font>
+						</li>
+						<li><label>文章类型<b>*</b></label>
+							<div class="vocation">
+								<select id="wzlx" name="wzlx" class="select1">
+									<option th:each="newType : ${newTypeList}" 
+									th:value="${newType.dmType}" th:text="${newType.nameType}"></option>
+								</select>
+							</div></li>
+						<li><label>文章内容<b>*</b></label> 
+						<!-- <textarea id="content1" class="textinput" name="content1" cols="100" rows="8"
+								style="width: 700px; height: 350px; visibility: hidden;">
+						</textarea> -->
+						<div style="width: 700px; height: 350px; display: inline-block;">
+							<div id="content" ></div>
+						</div>
+						</li>
+						<li><label>&nbsp;</label>
+							<input name="" type="submit" class="btn" value="马上发布"/> &nbsp;&nbsp;
+							<font style="font-weight: bold; font-style: italic;" color=red></font>
+							<input type="hidden" id="getID" name="getID" value=${ID}>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>

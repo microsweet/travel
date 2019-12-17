@@ -26,9 +26,9 @@ public class ShowController {
 	@RequestMapping()
 	String show(Model model) {
 
-		List<NewDetail> newList = this.newDetailService.findNewDetails();
-		List<NewDetail> jqdtList = this.newDetailService.findNewDetails();
-		model.addAttribute("jqdtList", jqdtList);
+		NewDetail newDetailParam = new NewDetail();
+		newDetailParam.setNewType(3);
+		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
 		model.addAttribute("newList", newList);
 		
 		County county = this.countyService.findCounty();
@@ -40,14 +40,16 @@ public class ShowController {
 	@GetMapping("/newDetail/{detailId}/{newType}")
 	String newDetails(@PathVariable("detailId") Integer detailId, @PathVariable("newType") Integer newType, Model model) {
 
-		List<NewDetail> newList = this.newDetailService.findNewDetails();
-		model.addAttribute("newList", newList);
 
 		NewDetail newDetailParam = new NewDetail();
 		newDetailParam.setId(detailId);
 		newDetailParam.setNewType(newType);
-		NewDetail newDetail = this.newDetailService.findNewDetails(newDetailParam);
+		NewDetail newDetail = this.newDetailService.findNewDetail(newDetailParam);
 		model.addAttribute("newDetail", newDetail);
+
+		newDetailParam.setId(null);
+		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
+		model.addAttribute("newList", newList);	
 		
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
@@ -57,7 +59,9 @@ public class ShowController {
 
 	@GetMapping("/about")
 	String about(Model model) {
-		List<NewDetail> newList = this.newDetailService.findNewDetails();
+		NewDetail newDetailParam = new NewDetail();
+		newDetailParam.setNewType(3);
+		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
 		model.addAttribute("newList", newList);
 
 		County county = this.countyService.findCounty();
@@ -69,7 +73,9 @@ public class ShowController {
 	@GetMapping("/newList/{newType}")
 	String newList(@PathVariable("newType") Integer newType, Model model) {
 
-		List<NewDetail> newList = this.newDetailService.findNewDetails();
+		NewDetail newDetailParam = new NewDetail();
+		newDetailParam.setNewType(3);
+		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
 		model.addAttribute("newList", newList);
 		
 		County county = this.countyService.findCounty();
