@@ -40,18 +40,18 @@ public class AdminController {
 
 	@GetMapping("/login")
 	String login(Model model, HttpSession session) {
-		return "/admin/login";
+		return "admin/login";
 	}
 
 	@GetMapping("/main")
 	String admin(Model model, HttpSession session) {
 
-		return "/admin/main";
+		return "admin/main";
 	}
 
 	@GetMapping("/top")
 	String top(Model model) {
-		return "/admin/top";
+		return "admin/top";
 	}
 
 	@GetMapping("/left")
@@ -60,7 +60,7 @@ public class AdminController {
 		List<DmNewType> newTypeList = this.dmNewTypeService.findNewType();
 		model.addAttribute("newTypeList", newTypeList);
 		
-		return "/admin/left";
+		return "admin/left";
 	}
 
 	@GetMapping("/right")
@@ -69,7 +69,7 @@ public class AdminController {
 		List<DmNewType> newTypeList = this.dmNewTypeService.findNewType();
 		model.addAttribute("newTypeList", newTypeList);
 		
-		return "/admin/right";
+		return "admin/right";
 	}
 
 	@GetMapping("/form/{type}")
@@ -84,7 +84,7 @@ public class AdminController {
 		}
 		model.addAttribute(newDetail);
 		
-		return "/admin/form";
+		return "admin/form";
 	}
 	
 	@PostMapping("/findArticle")

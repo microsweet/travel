@@ -20,3 +20,8 @@ jQuery(function($) {
 	//隐藏底栏
 	});*/
 });
+
+function liclick(obj){
+	var d = $(obj).find("a")
+	debugger
+}

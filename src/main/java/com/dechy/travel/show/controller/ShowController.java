@@ -37,7 +37,7 @@ public class ShowController {
 		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
 		model.addAllAttributes(newList);
 		
-		return "/show/index";
+		return "show/index";
 	}
 
 	@GetMapping("/newDetail/{detailId}/{newType}")
@@ -49,7 +49,7 @@ public class ShowController {
 		NewDetail newDetail = this.newDetailService.findNewDetail(newDetailParam);
 		model.addAttribute("newDetail", newDetail);
 
-		return "/show/newDetail";
+		return "show/newDetail";
 	}
 
 	@GetMapping("/about")
@@ -58,7 +58,7 @@ public class ShowController {
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
 
-		return "/show/about";
+		return "show/about";
 	}
 
 	@GetMapping("/newList/{newType}")
@@ -77,7 +77,7 @@ public class ShowController {
 		dmNewType = this.dmNewTypeService.findNewType(dmNewType);
 		model.addAttribute(dmNewType);
 		
-		return "/show/newList";
+		return "show/newList";
 	}
 	
 }
