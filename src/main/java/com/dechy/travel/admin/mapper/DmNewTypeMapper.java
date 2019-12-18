@@ -6,5 +6,6 @@ import com.dechy.travel.admin.model.DmNewType;
 
 public interface DmNewTypeMapper {
 	List<DmNewType> findNewType();
+	DmNewType findNewType(DmNewType dmNewType);
 
 }

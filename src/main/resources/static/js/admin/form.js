@@ -15,7 +15,21 @@ $(function() {
 		width : 345
 	});
 	initEditor();
+	setIfEdit();
 });
+
+function setIfEdit(){
+	var type = $("#formType").val();
+	if(type=="view"){
+		$("#title").attr("disabled", true);
+		$("#newType").attr("disabled", true);
+		$('#content').summernote('disable');
+		
+	}else{
+		
+	}
+	
+}
 $("#usual1 ul").idTabs();
 
 function initEditor(){
@@ -27,7 +41,8 @@ function initEditor(){
 		  lang: 'zh-CN'
 	});
 	var notice = $('#notice').val()
-	$('#content').summernote('pasteHTML', notice.substr(3, notice.length-7));
+	//$('#content').summernote('pasteHTML', notice.substr(3, notice.length-7));
+	$('#content').summernote('code', notice);
 }
 
 function saveArticle(){

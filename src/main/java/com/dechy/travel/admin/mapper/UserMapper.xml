@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dechy.travel.admin.mapper.UserMapper">
+	<resultMap type="com.dechy.travel.admin.model.User" id="orderFlow">
+		<result column="login_name" property="loginName" />
+		<result column="user_name" property="userName" />
+	</resultMap>
+	<select id="identifyUser" resultType="com.dechy.travel.admin.model.User" resultMap="orderFlow">
+		select * from user t where t.login_name=#{loginName} and t.passwd=#{passwd}
+	</select>
+	
+</mapper>

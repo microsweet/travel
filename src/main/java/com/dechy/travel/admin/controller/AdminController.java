@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dechy.travel.admin.model.DmNewType;
+import com.dechy.travel.admin.model.User;
 import com.dechy.travel.admin.service.DmNewTypeService;
-import com.dechy.travel.show.model.County;
+import com.dechy.travel.admin.service.UserService;
 import com.dechy.travel.show.model.NewDetail;
 import com.dechy.travel.show.service.CountyService;
 import com.dechy.travel.show.service.NewDetailService;
@@ -31,33 +35,27 @@ public class AdminController {
 	private DmNewTypeService dmNewTypeService;
 	@Autowired
 	private NewDetailService newDetailService;
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/login")
-	String login(Model model) {
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
+	String login(Model model, HttpSession session) {
 		return "/admin/login";
 	}
 
 	@GetMapping("/main")
-	String admin(Model model) {
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
+	String admin(Model model, HttpSession session) {
 
 		return "/admin/main";
 	}
 
 	@GetMapping("/top")
 	String top(Model model) {
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
 		return "/admin/top";
 	}
 
 	@GetMapping("/left")
 	String left(Model model) {
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
 
 		List<DmNewType> newTypeList = this.dmNewTypeService.findNewType();
 		model.addAttribute("newTypeList", newTypeList);
@@ -67,11 +65,7 @@ public class AdminController {
 
 	@GetMapping("/right")
 	String right(Model model, NewDetail newDetail) {
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
 
-//		Map<String, Object> map = this.newDetailService.findNewDetailList(newDetail);
-//		model.addAttribute("map", map);
 		List<DmNewType> newTypeList = this.dmNewTypeService.findNewType();
 		model.addAttribute("newTypeList", newTypeList);
 		
@@ -79,12 +73,9 @@ public class AdminController {
 	}
 
 	@GetMapping("/form/{type}")
-	String form(Model model, NewDetail newDetail, @PathVariable("type") String type) {
+	String form(Model model, HttpSession session, NewDetail newDetail, @PathVariable("type") String type) {
 		model.addAttribute("type", type);
 
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
-		
 		List<DmNewType> newTypeList = this.dmNewTypeService.findNewType();
 		model.addAttribute("newTypeList", newTypeList);
 		
@@ -112,9 +103,19 @@ public class AdminController {
 		return result;
 	}
 	
-	@PostMapping("deleteArticle")
+	@PostMapping("/deleteArticle")
 	@ResponseBody
 	boolean deleteArticle(NewDetail newDetail) {
 		return this.newDetailService.deleteNewDetail(newDetail);
+	}
+	
+	@PostMapping("/identifyUser")
+	ModelAndView identifyUser(User user, Model model, HttpSession session) {
+		user = this.userService.identifyUser(user);
+		if(user!=null) {
+			session.setAttribute("userName", user.getUserName());
+			return new ModelAndView("redirect:/admin/main");
+		}
+		return new ModelAndView("redirect:/admin/login");
 	}
 }

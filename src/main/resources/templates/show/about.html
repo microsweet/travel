@@ -3,7 +3,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title th:text="'走进'+${county.name}">title</title>
+<title th:text="'走进'+${session.county.name}">title</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -45,8 +45,9 @@
                                         <tr>
                                             <td class="left_titile">
                                                 <ul>
-                                                    <li><a href="NewList?type=4">周边景区</a></li>
-                                                    <li><a href="NewList?type=2">交通指南</a></li>
+                                                    <li th:each="newType : ${session.typeList}">
+														<a th:href="@{'/newList/'+${newType.dmType}}" th:text="${newType.nameType}"></a>
+													</li>
                                                 </ul>
                                             </td>
                                         </tr>

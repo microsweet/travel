@@ -8,31 +8,36 @@
     <div th:fragment="top">
         <div class="top"></div>
         <div class="nav">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id="topBar">
                 <tr>
                     <td width="260" height="181" style="padding-left: 40px;"><img
                         src="/images/sysImages/logo.png" style="margin-left: -30px;" /></td>
                     <td width=""></td>
                     <td class="nav_m" width="760">
                         <ul>
-                            <li><a href="/"> <img
-                                    src="/images/sysImages/index_07.png" width="32" height="104" />
+                            <li><a href="/"> 
+                            	<!-- <img src="/images/sysImages/index_07.png" width="32" height="104" /> -->
+                                网</br>站</br>首</br>页
                             </a></li>
-                            <li><a href="/about"> <img
-                                    src="/images/sysImages/index_11.png" width="32" height="104" />
+                            <li><a href="/about"> 
+                            	<!-- <img src="/images/sysImages/index_11.png" width="32" height="104" /> -->
+                            	走</br>进</br>新</br>乐
                             </a></li>
-                            <li><a href="NewList?type=0"
-                                > <img
-                                    src="/images/sysImages/index_17.png" width="32" height="104" />
+                            <li><a href="/newList/2">
+								<!-- <img src="/images/sysImages/index_17.png" width="32" height="104" /> -->
+								新</br>乐</br>文</br>化
+							</a></li>
+                            <li><a href="/newList/3"> 
+                            	<!-- <img src="/images/sysImages/index_19.png" width="32" height="104" /> -->
+                            	周</br>边</br>景</br>区	
                             </a></li>
-                            <li><a href="NewList?type=4"> <img
-                                    src="/images/sysImages/index_19.png" width="32" height="104" />
+                            <li><a href="/admin/login" target="_blank "> 
+                            	<!-- <img src="/images/sysImages/index_21.png" width="32" height="104" /> -->
+                            	景</br>点</br>维</br>护
                             </a></li>
-                            <li><a href="login" target="_blank "> <img
-                                    src="/images/sysImages/index_21.png" width="32" height="104" />
-                            </a></li>
-                            <li><a href="../../hhmap/index.html" target="_blank "> <img
-                                    src="/images/sysImages/index_0025.png" width="32" height="104" />
+                            <li><a href="../../hhmap/index.html" target="_blank "> 
+                            	<!-- <img src="/images/sysImages/index_0025.png" width="32" height="104" /> -->
+                            	景</br>点</br>地</br>图
                             </a></li>
                         </ul>
                     </td>
@@ -43,7 +48,7 @@
             <script type="text/javascript" src="/js/top.js"></script>
             <div id="demo1" class="slideBox">
                 <ul class="items">
-                    <li th:each="topNew : ${newList}">
+                    <li th:each="topNew : ${session.newList}">
                         <a th:title="${topNew.title}">
                             <img th:src="@{${topNew.src}}" width="1000px" height="308px"/>
                         </a>

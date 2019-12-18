@@ -13,10 +13,13 @@ spring:
     suffix: .html
   datasource:
     driver-class-name: org.sqlite.JDBC
-#    url: jdbc:sqlite::resource:static/sqlite/travel.db
-    url: jdbc:sqlite:/home/microsweet/eclipse-workspace/travel/src/main/resources/static/sqlite/travel.db
+    url: jdbc:sqlite::resource:static/sqlite/travel.db
+    #url: jdbc:sqlite:/home/microsweet/workspace/travel/travel/src/main/resources/static/sqlite/travel.db
     username: 
     password: 
+  http: 
+    encoding: 
+      charset: utf-8
     
 mybatis:
   mapper-locations:
@@ -24,3 +27,4 @@ mybatis:
   #configuration: 
     #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     
+

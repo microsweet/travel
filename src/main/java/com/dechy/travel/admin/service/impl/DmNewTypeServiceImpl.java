@@ -22,5 +22,9 @@ public class DmNewTypeServiceImpl implements DmNewTypeService {
 		// TODO Auto-generated method stub
 		return this.dmNewTypeMapper.findNewType();
 	}
+	
+	public DmNewType findNewType(DmNewType dmNewType) {
+		return this.dmNewTypeMapper.findNewType(dmNewType);
+	}
 
 }

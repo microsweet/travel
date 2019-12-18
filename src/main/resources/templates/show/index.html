@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title th:text="${county.name}+'市旅游'">title</title>
-<meta name="keywords" th:content="${county.name}" />
-<meta name="description" content="${county.name}" />
+<title th:text="${session.county.name}+'市旅游'">title</title>
+<meta name="keywords" th:content="${session.county.name}" />
+<meta name="description" content="${session.county.name}" />
 <meta name="robots" content="all" />
 <meta content="MSHTML 6.00.2900.3268" name="GENERATOR" />
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
@@ -61,7 +61,7 @@
 
                                             </ul>
                                             <div id="tpcbanner_list">
-                                                <a th:each="newDetail : ${newList}"
+                                                <a th:each="newDetail : ${session.newList}"
                                                     th:href="@{'/newDetail/'+${newDetail.id}+'/'+${newDetail.newType}}" target="_blank">
                                                     <img th:src="@{${newDetail.src}}" width="269px"
                                                     th:height="177px" th:title="${newDetail.title}"
@@ -137,7 +137,7 @@
                                     <td width="170" rowspan="2" align="center" class="di"><img
                                         src="images/sysImages/1.jpg" alt="" width="122" height="83" /></td>
                                     <td height="174" class="dcjj">
-                                        <p class="fontcss" th:text="${county.synopsis}"></p>
+                                        <p class="fontcss" th:text="${session.county.synopsis}"></p>
                                     </td>
                                 </tr>
                                 <tr>

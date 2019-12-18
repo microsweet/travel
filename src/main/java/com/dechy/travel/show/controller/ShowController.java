@@ -2,6 +2,8 @@ package com.dechy.travel.show.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dechy.travel.admin.model.DmNewType;
+import com.dechy.travel.admin.service.DmNewTypeService;
 import com.dechy.travel.show.model.County;
 import com.dechy.travel.show.model.NewDetail;
 import com.dechy.travel.show.service.CountyService;
@@ -22,24 +26,22 @@ public class ShowController {
 	private NewDetailService newDetailService;
 	@Autowired
 	private CountyService countyService;
+	@Autowired
+	private DmNewTypeService dmNewTypeService;
 	
 	@RequestMapping()
-	String show(Model model) {
+	String show(Model model, HttpSession session) {
 
 		NewDetail newDetailParam = new NewDetail();
-		newDetailParam.setNewType(3);
+		newDetailParam.setNewType(2);
 		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
-		model.addAttribute("newList", newList);
+		model.addAllAttributes(newList);
 		
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
-
 		return "/show/index";
 	}
 
 	@GetMapping("/newDetail/{detailId}/{newType}")
-	String newDetails(@PathVariable("detailId") Integer detailId, @PathVariable("newType") Integer newType, Model model) {
-
+	String newDetails(@PathVariable("detailId") Integer detailId, @PathVariable("newType") Integer newType, Model model, HttpSession session) {
 
 		NewDetail newDetailParam = new NewDetail();
 		newDetailParam.setId(detailId);
@@ -47,22 +49,11 @@ public class ShowController {
 		NewDetail newDetail = this.newDetailService.findNewDetail(newDetailParam);
 		model.addAttribute("newDetail", newDetail);
 
-		newDetailParam.setId(null);
-		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
-		model.addAttribute("newList", newList);	
-		
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
-		
 		return "/show/newDetail";
 	}
 
 	@GetMapping("/about")
-	String about(Model model) {
-		NewDetail newDetailParam = new NewDetail();
-		newDetailParam.setNewType(3);
-		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
-		model.addAttribute("newList", newList);
+	String about(Model model, HttpSession session) {
 
 		County county = this.countyService.findCounty();
 		model.addAttribute(county);
@@ -71,15 +62,20 @@ public class ShowController {
 	}
 
 	@GetMapping("/newList/{newType}")
-	String newList(@PathVariable("newType") Integer newType, Model model) {
+	String newList(@PathVariable("newType") Integer newType, Model model, HttpSession session) {
 
 		NewDetail newDetailParam = new NewDetail();
-		newDetailParam.setNewType(3);
-		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
-		model.addAttribute("newList", newList);
+		newDetailParam.setNewType(newType);
+		List<NewDetail> news = this.newDetailService.findNewDetails(newDetailParam);
+		if(news.size()==0) {
+			news.add(new NewDetail());
+		}
+		model.addAttribute("news", news);
 		
-		County county = this.countyService.findCounty();
-		model.addAttribute(county);
+		DmNewType dmNewType = new DmNewType();
+		dmNewType.setDmType(newType);
+		dmNewType = this.dmNewTypeService.findNewType(dmNewType);
+		model.addAttribute(dmNewType);
 		
 		return "/show/newList";
 	}

@@ -8,6 +8,9 @@
 	<select id="findNewType" resultType="com.dechy.travel.admin.model.DmNewType" 
 	resultMap="orderFlow">
 		select * from dm_new_type t 
+		<where>
+			<if test="dmType!=null"> and t.dm_type=#{dmType}</if>
+		</where>
 	</select>
 	
 </mapper>
