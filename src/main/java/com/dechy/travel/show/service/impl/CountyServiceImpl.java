@@ -18,6 +18,7 @@ public class CountyServiceImpl implements CountyService {
 	@Autowired
 	private CountyMapper countyMapper;
 
+	//查询行政区信息
 	@Override
 	public County findCounty() {
 		// TODO Auto-generated method stub

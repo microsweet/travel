@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href="<%=basePath%>">
+
+<title th:text="${session.county.name}+'地图'">title</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+<script type="text/javascript" src="/js/plugins/jquery.js"></script>
+<script type="text/javascript" src="/js/plugins/SuperMap/libs/SuperMap.Include.js"></script>
+<script type="text/javascript" src="/js/map.js"></script>
+<style type="text/css">
+body {
+	margin: 0;
+	overflow: hidden;
+	background: #fff;
+}
+
+#map {
+	position: relative;
+	height: 853px;
+	border: 1px solid #3473b7;
+}
+</style>
+</head>
+
+<body>
+	<input id="yingxiang" type="hidden" th:value="${yingxiangtu}"/>
+	<input id="shiliang" type="hidden" th:value="${shiliangtu}"/>
+	<input id="cunjie" type="hidden" th:value="${cunjie}"/>
+    <div style="text-align: center; width: 100%">
+        <div class="head" style="height: 100px;"></div>
+        
+        <div id="map" style="width: 100%; height:calc(100vh - 145px);"></div>
+
+        <!--所有页面下方版权-->
+        <div th:replace="masterPage/bottom.html :: bottom"></div>
+    </div>
+</body>
+</html>

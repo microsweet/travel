@@ -38,22 +38,26 @@ public class AdminController {
 	@Autowired
 	private UserService userService;
 
+	//景点维护登录页面跳转
 	@GetMapping("/login")
 	String login(Model model, HttpSession session) {
 		return "admin/login";
 	}
 
+	//景点维护主页面
 	@GetMapping("/main")
 	String admin(Model model, HttpSession session) {
 
 		return "admin/main";
 	}
 
+	//景点维护主页面头部
 	@GetMapping("/top")
 	String top(Model model) {
 		return "admin/top";
 	}
 
+	//景点维护主页面左侧树页面
 	@GetMapping("/left")
 	String left(Model model) {
 
@@ -63,6 +67,7 @@ public class AdminController {
 		return "admin/left";
 	}
 
+	//景点维护右侧文章管理页面
 	@GetMapping("/right")
 	String right(Model model, NewDetail newDetail) {
 
@@ -72,6 +77,7 @@ public class AdminController {
 		return "admin/right";
 	}
 
+	//景点维护右侧信息发布页面
 	@GetMapping("/form/{type}")
 	String form(Model model, HttpSession session, NewDetail newDetail, @PathVariable("type") String type) {
 		model.addAttribute("type", type);
@@ -87,6 +93,7 @@ public class AdminController {
 		return "admin/form";
 	}
 	
+	//文章管理页面的列表查询
 	@PostMapping("/findArticle")
 	@ResponseBody
 	Map<String, Object> findArticle(NewDetail newDetail) {
@@ -94,6 +101,7 @@ public class AdminController {
 		return map;
 	}
 	
+	//保存新闻
 	@PostMapping("/saveArticle")
 	@ResponseBody
 	boolean saveArticle(NewDetail newDetail) {
@@ -103,12 +111,14 @@ public class AdminController {
 		return result;
 	}
 	
+	//删除新闻
 	@PostMapping("/deleteArticle")
 	@ResponseBody
 	boolean deleteArticle(NewDetail newDetail) {
 		return this.newDetailService.deleteNewDetail(newDetail);
 	}
 	
+	//登录页面登录验证
 	@PostMapping("/identifyUser")
 	ModelAndView identifyUser(User user, Model model, HttpSession session) {
 		user = this.userService.identifyUser(user);

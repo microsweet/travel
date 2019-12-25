@@ -26,6 +26,8 @@ public class HttpSessionLintener implements HttpSessionListener, HttpSessionAttr
 	@Autowired
 	private DmNewTypeService dmNewTypeService;
 	@Override
+
+	//监听session创建时查询轮播图片、新闻类型、行政区等信息
     public void sessionCreated(HttpSessionEvent event) {
         HttpSession session = event.getSession();
         NewDetail newDetailParam = new NewDetail();

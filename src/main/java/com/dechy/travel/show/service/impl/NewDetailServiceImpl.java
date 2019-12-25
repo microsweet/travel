@@ -20,12 +20,14 @@ public class NewDetailServiceImpl implements NewDetailService {
 	@Autowired
 	private NewDetailMapper newDetailMapper;
 
+	//查询新闻列表
 	@Override
 	public List<NewDetail> findNewDetails(NewDetail newDetail) {
 		// TODO Auto-generated method stub
 		return this.newDetailMapper.findNewDetails(newDetail);
 	}
 
+	//查询新闻内容
 	@Override
 	public NewDetail findNewDetail(NewDetail newDetail) {
 		// TODO Auto-generated method stub
@@ -34,6 +36,7 @@ public class NewDetailServiceImpl implements NewDetailService {
 		return returnMap;
 	}
 
+	//新闻管理页面查询新闻list
 	@Override
 	public Map<String, Object> findNewDetailList(NewDetail newDetail){
 		Map<String, Object> result = new HashMap();
@@ -46,6 +49,7 @@ public class NewDetailServiceImpl implements NewDetailService {
 		return result;
 	}
 	
+	//保存
 	@Override
 	public boolean saveNewDetail(NewDetail newDetail) {
 		try {
@@ -61,6 +65,7 @@ public class NewDetailServiceImpl implements NewDetailService {
 		return true;
 	}
 
+	//删除
 	@Override
 	public boolean deleteNewDetail(NewDetail newDetail) {
 		try {

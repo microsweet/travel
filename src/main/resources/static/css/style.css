@@ -82,7 +82,6 @@ a:hover {
 	margin: 0 auto;
 	padding-top : 59px;
 	background: url("/images/sysImages/index_38.png") no-repeat top;
-	padding-top: 59px;
 }
 
 .part_1 {
@@ -223,15 +222,14 @@ a:hover {
 }
 
 .copyright {
-	height: 100px;
+	/* height: 100px; */
 	width: 1002px;
 	margin: 0 auto;
 	text-align: center;
-	padding-top: 30px;
+	padding: 10px 0 10px 0;
 	line-height: 24px;
 	color: #CCC;
-	background: url("/images/sysImages/index_83-40.png")
-		/*tpa=   /New_images/index_83-40.png*/   no-repeat top;
+	/* background: url("/images/sysImages/index_83-40.png") no-repeat top; */
 }
 
 .main {
