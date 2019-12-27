@@ -45,9 +45,19 @@
 							<div class="vocation">
 								<select id="newType" name="newType" class="select1">
 									<option th:each="newType : ${newTypeList}" 
-									th:value="${newType.dmType}" th:text="${newType.nameType}" th:if="${newType.dmType==newDetail.newType?'selected':''}"></option>
+									th:value="${newType.dmType}" th:text="${newType.nameType}" th:selected="${newType.dmType eq newDetail.newType}"></option>
 								</select>
 							</div></li>
+						<li>
+							<label>预览图片</label>
+							<input id="viewPicBtn" type="file" accept="image/*" onchange="change(this)">
+							<input id='viewPic' type="hidden">
+							<div id="viewPicShow" th:switch="${newDetail.viewPic}">
+								<img th:case="null">
+								<img th:case="''">
+								<img th:case="*" th:src="${newDetail.viewPic}">
+							</div>
+						</li>
 						<li><label>文章内容<b>*</b></label> 
 						<div style="width: 700px; height: 350px; display: inline-block;">
                             <input id="notice" type="hidden" th:value="${newDetail.notice}" />

@@ -13,7 +13,7 @@
                     <td width="260" height="181" style="padding-left: 40px;"><img
                         src="/images/sysImages/logo.png" style="margin-left: -30px;" /></td>
                     <td width=""></td>
-                    <td class="nav_m" width="760">
+                    <td class="nav_m" width="760" style="padding-left: 70px;">
                         <ul>
                             <li onclick="window.location.href='/'"><a href="javaScript:void(0)"> 
                             	<!-- <img src="/images/sysImages/index_07.png" width="32" height="104" /> -->
@@ -21,11 +21,11 @@
                             </a></li>
                             <li onclick="window.location.href='/about'"><a href="javaScript:void(0)"> 
                             	<!-- <img src="/images/sysImages/index_11.png" width="32" height="104" /> -->
-                            	走</br>进</br>新</br>乐
+                            	走</br>进</br>南</br>皮
                             </a></li>
                             <li onclick="window.location.href='/newList/2'"><a href="javaScript:void(0)">
 								<!-- <img src="/images/sysImages/index_17.png" width="32" height="104" /> -->
-								新</br>乐</br>文</br>化
+								南</br>皮</br>文</br>化
 							</a></li>
                             <li onclick="window.location.href='/newList/3'"><a href="javaScript:void(0)"> 
                             	<!-- <img src="/images/sysImages/index_19.png" width="32" height="104" /> -->
@@ -50,7 +50,7 @@
                 <ul class="items">
                     <li th:each="topNew : ${session.newList}">
                         <a th:title="${topNew.title}">
-                            <img th:src="@{${topNew.src}}" width="1000px" height="308px"/>
+                            <img th:src="${topNew.viewPic}" width="1000px" height="308px"/>
                         </a>
                     </li>
                 </ul>

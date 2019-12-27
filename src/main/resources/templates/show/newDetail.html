@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title th:text="${session.county.name}+'市旅游'">title</title>
+<title th:text="${session.county.name}+'县旅游'">title</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -54,9 +54,9 @@
                                             <tr>
                                                 <td class="left_titile">
                                                     <ul>
-
-                                                        <li><a href="newList">周边景区</a></li>
-                                                        <li><a href="newList">交通指南</a></li>
+                                                    	<li th:each="newType : ${session.typeList}">
+															<a th:href="@{'/newList/'+${newType.dmType}}" th:text="${newType.nameType}"></a>
+														</li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -100,7 +100,7 @@
                                                     class="Article_title" th:text="${newDetail.title}"></td>
                                             </tr>
                                             <tr>
-                                                <td height="40" align="center" class="from" th:text="'信息来源：新乐市旅游地理信息系统
+                                                <td height="40" align="center" class="from" th:text="'信息来源：南皮县旅游地理信息系统
                                                     &nbsp;&nbsp; 发布时间：'+${newDetail.createDate}"></td>
                                             </tr>
 

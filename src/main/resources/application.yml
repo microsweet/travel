@@ -1,5 +1,5 @@
 server:  
-  port: 8090  
+  port: 8070  
   session-timeout: 30  
   tomcat.max-threads: 0  
   tomcat.uri-encoding: UTF-8  
@@ -14,7 +14,7 @@ spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
     url: jdbc:sqlite::resource:static/sqlite/travel.db
-    #url: jdbc:sqlite:/home/microsweet/workspace/travel/travel/src/main/resources/static/sqlite/travel.db
+    #url: jdbc:sqlite:/home/microsweet/workspace/eclipse/travel/travel/src/main/resources/static/sqlite/travel.db
     username: 
     password: 
   http: 

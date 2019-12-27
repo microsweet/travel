@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title th:text="${session.county.name}+'市旅游'">title</title>
+<title th:text="${session.county.name}+'县旅游'">title</title>
 <meta name="keywords" th:content="${session.county.name}" />
 <meta name="description" content="${session.county.name}" />
 <meta name="robots" content="all" />
@@ -63,7 +63,7 @@
                                             <div id="tpcbanner_list">
                                                 <a th:each="newDetail : ${session.newList}"
                                                     th:href="@{'/newDetail/'+${newDetail.id}+'/'+${newDetail.newType}}" target="_blank">
-                                                    <img th:src="@{${newDetail.src}}" width="269px"
+                                                    <img th:src="${newDetail.viewPic}" width="269px"
                                                     th:height="177px" th:title="${newDetail.title}"
                                                     th:alt="${newDetail.title}">
                                                 </a>

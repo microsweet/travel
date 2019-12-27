@@ -41,7 +41,7 @@ public class ShowController {
 		NewDetail newDetailParam = new NewDetail();
 		newDetailParam.setNewType(2);
 		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
-		model.addAllAttributes(newList);
+		model.addAttribute("newList", newList);
 		
 		return "show/index";
 	}

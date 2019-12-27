@@ -21,6 +21,8 @@ public class NewDetail {
 	private Integer limit;
 	//新闻类型
 	private String newTypeName;
+	//预览图片
+	private String viewPic;
 
 	public Integer getId() {
 		return Id;
@@ -81,6 +83,12 @@ public class NewDetail {
 	}
 	public void setNewTypeName(String newTypeName) {
 		this.newTypeName = newTypeName;
+	}
+	public String getViewPic() {
+		return viewPic;
+	}
+	public void setViewPic(String viewPic) {
+		this.viewPic = viewPic;
 	}
 
 }

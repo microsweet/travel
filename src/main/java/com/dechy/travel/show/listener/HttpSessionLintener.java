@@ -1,5 +1,6 @@
 package com.dechy.travel.show.listener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.annotation.WebListener;
@@ -33,7 +34,14 @@ public class HttpSessionLintener implements HttpSessionListener, HttpSessionAttr
         NewDetail newDetailParam = new NewDetail();
 		newDetailParam.setNewType(3);
 		List<NewDetail> newList = this.newDetailService.findNewDetails(newDetailParam);
-		session.setAttribute("newList", newList);
+		List<NewDetail> list = new ArrayList<NewDetail>();
+		for (NewDetail newDetail : newList) {
+			if(newDetail.getViewPic()!=null&&newDetail.getViewPic()!="") {
+				list.add(newDetail);
+			}
+			
+		}
+		session.setAttribute("newList", list);
 		
 		List<DmNewType> typeList = this.dmNewTypeService.findNewType();
 		session.setAttribute("typeList", typeList);
